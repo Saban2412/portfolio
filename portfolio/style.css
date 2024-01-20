@@ -1,0 +1,122 @@
+
+body{
+    margin: 0%;
+    padding: 0%;
+    background-color: white;
+    height: 2000px;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+header{
+    display: flex;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    background-color: rgb(212, 212, 212);
+}
+header img{
+    height: 70px;
+    float: left;
+}
+.container{
+    width: 80%;
+    margin: auto;
+}
+.dugmad{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 50%;
+    margin:auto;
+}
+.dugmad button{
+    border: solid 1px rgb(212, 212, 212);
+    border-radius: 25px;
+    background-color:rgb(212, 212, 212);
+    font-size: 18px;
+    color: rgb(119, 119, 119);
+    padding: 10px;
+    transition: background-color 0.5s;
+}
+.dugmad button:hover{
+    background-color:rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+}
+.dugmad button:active{
+    opacity: 0.6;
+}
+#showcase{
+    background-color: white;
+    padding-top: 50px;
+    display: flex;
+    justify-content: space-between;
+}
+#showcase img{
+    height: 700px;
+}
+.naslov{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 50%;
+}
+.naslov h2{
+    color: rgb(99, 99, 99);
+    font-size: 25px;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+.naslov h1{
+    font-size: 65px;
+    margin: 0;
+    color: rgb(58, 58, 58);
+}
+.naslov p{
+    color: rgb(124, 124, 124);
+}
+.prvi{
+    border: solid 1px black;
+    background-color:rgb(0, 0, 0);
+    font-size: 18px;
+    color: rgb(255, 255, 255);
+    padding: 10px;
+    padding-left: 25px;
+    padding-right: 25px;
+    border-radius: 25px;
+    transition: background-color 0.5s;
+}
+.prvi:hover{
+    cursor: pointer;
+    background-color: white;
+    color: black;
+    border: solid 1px black;
+}
+.prvi:active{
+    opacity: 0.5;
+}
+.drugi{
+    border: solid 1px black;
+    background-color:white;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 18px;
+    color: black;
+    padding: 10px;
+    padding-left: 25px;
+    padding-right: 25px;
+    border-radius: 25px;
+    transition: background-color 0.5s;
+}
+.drugi:hover{
+    cursor: pointer;
+    background-color: black;
+    color: white;
+    border: solid 1px black;
+}
+.drugi:active{
+    opacity: 0.5;
+}
+#biografija{
+    height: 300px;
+    background-color: rgb(212, 212, 212);
+    overflow: hidden;
+}
