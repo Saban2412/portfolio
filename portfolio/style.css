@@ -120,3 +120,7 @@ header img{
     background-color: rgb(212, 212, 212);
     overflow: hidden;
 }
+.slika img{
+    height: 100px;
+    float: left;
+}
