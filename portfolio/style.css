@@ -3,7 +3,6 @@ body{
     margin: 0%;
     padding: 0%;
     background-color: white;
-    height: 2000px;
     font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 header{
@@ -20,6 +19,8 @@ header img{
 .container{
     width: 80%;
     margin: auto;
+    margin-top: 0;
+    margin-bottom: 0;
 }
 .dugmad{
     display: flex;
@@ -115,12 +116,93 @@ header img{
 .drugi:active{
     opacity: 0.5;
 }
-#biografija{
-    height: 300px;
+.content1{
+    height: 400px;
     background-color: rgb(212, 212, 212);
-    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding: 40px;
 }
-.slika img{
-    height: 100px;
-    float: left;
+.sve{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 500px;
+    height: 400px;
+    background-color: white;
+    border-radius: 30px;
+    overflow: hidden;
+    text-align: center;
+}
+.sve p{
+    padding: 20px;
+}
+.sve img{
+    height: 50px;
+    width: 55px;
+    padding: 20px;
+    padding-top: 40px;
+}
+.sve h1{
+    padding: 0;
+    margin: 0;
+}
+.content2{
+    height: 400px;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    padding: 40px;
+}
+.sve2{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 500px;
+    height: 400px;
+    background-color: rgb(212, 212, 212);
+    border-radius: 30px;
+    overflow: hidden;
+    text-align: center;
+}
+.sve2 p{
+    padding: 20px;
+}
+.sve2 img{
+    height: 50px;
+    width: 55px;
+    padding: 20px;
+    padding-top: 40px;
+}
+.sve2 h1{
+    padding: 0;
+    margin: 0;
+}
+.skill{
+    width: 100%;
+    background-color: rgb(129, 129, 129);
+    margin: auto;
+    height: 20px;
+}
+#skillprvi{
+    width: 90%;
+    background-color: rgb(41, 41, 41);
+    height: 100%;
+}
+#skilldrugi{
+    width: 95%;
+    background-color: rgb(41, 41, 41);
+    height: 100%;
+}
+#skilltreci{
+    width: 75%;
+    background-color: rgb(41, 41, 41);
+    height: 100%;
+}
+#skillcetvrti{
+    width: 98%;
+    background-color: rgb(41, 41, 41);
+    height: 100%;
 }
