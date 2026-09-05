@@ -47,9 +47,12 @@
     }
 
     try {
-      const events = await githubRequest(
-        `/users/${username}/events/public?per_page=100`,
-      );
+      const [events, commitSearch] = await Promise.all([
+        githubRequest(`/users/${username}/events/public?per_page=100`),
+        githubRequest(
+          `/search/commits?q=author%3A${username}&sort=committer-date&order=desc&per_page=5`,
+        ).catch(() => null),
+      ]);
       const pushEvent = events
         .filter(
           (event) =>
@@ -63,9 +66,21 @@
         )[0];
       if (!pushEvent) throw new Error("no-public-push");
 
-      const repo = await githubRequest(`/repos/${pushEvent.repo.name}`);
+      let repositoryName = pushEvent.repo.name;
+      const latestCommit = commitSearch?.items?.find(
+        (item) => item.repository?.full_name && item.commit?.author?.date,
+      );
+      if (
+        latestCommit &&
+        new Date(latestCommit.commit.author.date) >
+          new Date(pushEvent.created_at)
+      ) {
+        repositoryName = latestCommit.repository.full_name;
+      }
+
+      const repo = await githubRequest(`/repos/${repositoryName}`);
       const commits = await githubRequest(
-        `/repos/${pushEvent.repo.name}/commits?per_page=5`,
+        `/repos/${repositoryName}/commits?per_page=5`,
       );
       if (!Array.isArray(commits) || !commits.length) {
         throw new Error("no-commits");
