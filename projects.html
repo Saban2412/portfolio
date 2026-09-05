@@ -1,0 +1,705 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projects — Emir Šabanović</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              darkBg: "#060813", // Duboka tamna pozadina sa slike
+              cardBg: "#0b1120", // Boja pozadine za kartice
+              accentPurp: "#6366f1", // Ljubičasti akcenti
+              accentBlue: "#2563eb", // Plavi akcenti
+            },
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+              mono: ["Fira Code", "monospace"],
+            },
+          },
+        },
+      };
+    </script>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Code&family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body
+    class="bg-darkBg text-white font-sans antialiased selection:bg-accentPurp/30"
+  >
+    <!-- HEADER / NAVIGATION -->
+    <header
+      id="site-header"
+      class="w-full max-w-6xl mx-auto px-6 h-20 flex items-center justify-between sticky top-0 bg-darkBg/80 backdrop-blur-md z-50 transition-shadow duration-300"
+    >
+      <a
+        href="index.html"
+        class="flex items-center gap-2 text-2xl tracking-tight"
+      >
+        <span
+          style="font-family: &quot;Alex Brush&quot;, cursive"
+          class="font-medium text-gray-200"
+          >Šabanović</span
+        >
+      </a>
+
+      <nav class="hidden md:flex items-center gap-8 text-sm text-gray-400">
+        <a
+          href="index.html#home"
+          class="nav-link hover:text-white transition-colors pb-1"
+          >Home</a
+        >
+        <a
+          href="index.html#about"
+          class="nav-link hover:text-white transition-colors pb-1"
+          >About</a
+        >
+        <a
+          href="projects.html"
+          class="nav-link text-white border-b-2 border-accentPurp pb-1"
+          >Projects</a
+        >
+        <a
+          href="index.html#contact"
+          class="nav-link hover:text-white transition-colors pb-1"
+          >Contact</a
+        >
+        <a
+          href="downloads/Emir_Sabanovic_Resume.pdf"
+          download
+          class="btn-shine cv-pulse bg-red-600 hover:bg-red-500 text-white px-4 py-2 rounded-md text-xs font-semibold flex items-center gap-1.5 transition-all"
+        >
+          Download CV <span class="text-xs">↓</span>
+        </a>
+      </nav>
+
+      <!-- DESNI DIO: Zastavice i Hire Me dugme grupisani zajedno -->
+      <div class="flex items-center gap-6">
+        <div class="flex items-center gap-2.5">
+          <a href="projects.html" class="hover:opacity-80 transition-opacity">
+            <img
+              src="images/icons8-uk-48.png"
+              alt="English"
+              class="w-5 h-auto object-contain"
+            />
+          </a>
+          <a href="projects_b.html" class="hover:opacity-80 transition-opacity">
+            <img
+              src="images/icons8-bosnia-and-herzegovina-48.png"
+              alt="Bosanski"
+              class="w-5 h-auto object-contain"
+            />
+          </a>
+        </div>
+
+        <a
+          href="https://mail.google.com/mail/?view=cm&fs=1&to=emir.sabanovic.23@size.ba"
+          target="_blank"
+          rel="noreferrer"
+          class="btn-shine bg-accentPurp hover:bg-indigo-600 px-5 py-2.5 text-xs font-semibold rounded-md transition-all flex items-center gap-1"
+        >
+          Hire Me <span class="text-sm">↗</span>
+        </a>
+        <button
+          type="button"
+          id="menu-toggle"
+          class="md:hidden p-2 text-gray-300 hover:text-white"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+          onclick="toggleMobileMenu()"
+        >
+          <span class="sr-only">Menu</span>
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
+        </button>
+      </div>
+    </header>
+    <nav
+      id="mobile-menu"
+      class="hidden md:hidden border-b border-slate-800 bg-darkBg/95 px-6 py-3 text-sm text-gray-300 sticky top-20 z-40"
+    >
+      <a href="index.html#home" class="block py-2.5">Home</a>
+      <a href="index.html#about" class="block py-2.5">About</a>
+      <a href="projects.html" class="block py-2.5">Projects</a>
+      <a href="index.html#contact" class="block py-2.5">Contact</a>
+      <a
+        href="downloads/Emir_Sabanovic_Resume.pdf"
+        download
+        class="block py-2.5 text-red-400"
+        >Download CV</a
+      >
+    </nav>
+
+    <!-- PAGE INTRO -->
+    <section class="relative w-full overflow-hidden">
+      <div class="aurora w-72 h-72 bg-accentPurp -top-10 left-[2%]"></div>
+      <div
+        class="aurora w-80 h-80 bg-accentBlue top-1/4 right-[4%]"
+        style="animation-delay: -6s"
+      ></div>
+
+      <div
+        class="w-full max-w-6xl mx-auto px-6 pt-14 pb-10 md:pt-20 relative z-10"
+      >
+        <a
+          href="index.html"
+          class="reveal inline-flex items-center gap-2 text-xs font-mono text-gray-500 hover:text-accentPurp transition-colors mb-8"
+        >
+          <span>←</span> Back to Home
+        </a>
+
+        <div class="reveal" style="transition-delay: 80ms">
+          <span
+            class="text-xs font-semibold uppercase tracking-widest bg-accentPurp/10 text-accentPurp px-3 py-1.5 rounded-full"
+            >Selected Work</span
+          >
+          <h1
+            class="text-4xl md:text-6xl font-bold tracking-tight mt-6 leading-tight max-w-2xl"
+          >
+            Things I've <span class="shimmer-text">built &amp; broken</span>
+            along the way
+          </h1>
+          <p class="text-gray-400 mt-6 max-w-xl text-base leading-relaxed">
+            A running log of backend systems I've shipped — APIs, scrapers, auth
+            flows — plus a few that are still cooking. Filter by stack, or just
+            click a card to dig into the architecture.
+          </p>
+        </div>
+
+        <!-- BROJAČ STATISTIKE -->
+        <div
+          class="reveal-stagger grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 mt-12 border-t border-slate-900 pt-8"
+        >
+          <div>
+            <p
+              class="stat-number text-3xl md:text-4xl font-bold text-white"
+              data-count="3"
+            >
+              0
+            </p>
+            <p
+              class="text-[11px] font-mono text-gray-500 uppercase tracking-wider mt-1"
+            >
+              Projects Shipped
+            </p>
+          </div>
+          <div>
+            <p
+              class="stat-number text-3xl md:text-4xl font-bold text-white"
+              data-count="7"
+            >
+              0
+            </p>
+            <p
+              class="text-[11px] font-mono text-gray-500 uppercase tracking-wider mt-1"
+            >
+              Technologies Used
+            </p>
+          </div>
+          <div>
+            <p
+              class="stat-number text-3xl md:text-4xl font-bold text-white"
+              data-count="100"
+              data-suffix="%"
+            >
+              0%
+            </p>
+            <p
+              class="text-[11px] font-mono text-gray-500 uppercase tracking-wider mt-1"
+            >
+              Backend Focused
+            </p>
+          </div>
+          <div>
+            <p class="text-3xl md:text-4xl font-bold text-white">∞</p>
+            <p
+              class="text-[11px] font-mono text-gray-500 uppercase tracking-wider mt-1"
+            >
+              Coffee Consumed
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FILTER CHIPS -->
+    <section class="w-full max-w-6xl mx-auto px-6 reveal">
+      <div
+        id="filter-bar"
+        class="flex flex-wrap gap-2.5 border-y border-slate-900 py-6"
+      >
+        <button
+          data-filter="all"
+          class="filter-chip active px-4 py-2 rounded-full border border-slate-800 text-xs font-mono text-gray-300 hover:border-slate-600"
+        >
+          All
+        </button>
+        <button
+          data-filter="node"
+          class="filter-chip px-4 py-2 rounded-full border border-slate-800 text-xs font-mono text-gray-400 hover:border-slate-600 hover:text-white"
+        >
+          Node.js
+        </button>
+        <button
+          data-filter="postgresql"
+          class="filter-chip px-4 py-2 rounded-full border border-slate-800 text-xs font-mono text-gray-400 hover:border-slate-600 hover:text-white"
+        >
+          PostgreSQL
+        </button>
+        <button
+          data-filter="docker"
+          class="filter-chip px-4 py-2 rounded-full border border-slate-800 text-xs font-mono text-gray-400 hover:border-slate-600 hover:text-white"
+        >
+          Docker
+        </button>
+        <button
+          data-filter="zod"
+          class="filter-chip px-4 py-2 rounded-full border border-slate-800 text-xs font-mono text-gray-400 hover:border-slate-600 hover:text-white"
+        >
+          Zod
+        </button>
+        <button
+          data-filter="supabase"
+          class="filter-chip px-4 py-2 rounded-full border border-slate-800 text-xs font-mono text-gray-400 hover:border-slate-600 hover:text-white"
+        >
+          Supabase
+        </button>
+        <button
+          data-filter="swagger"
+          class="filter-chip px-4 py-2 rounded-full border border-slate-800 text-xs font-mono text-gray-400 hover:border-slate-600 hover:text-white"
+        >
+          Swagger
+        </button>
+      </div>
+    </section>
+
+    <!-- PROJECTS GRID (PROMIJENJENO NA 2 KARTICE U REDU) -->
+    <section class="w-full max-w-6xl mx-auto px-6 py-14">
+      <div
+        id="projects-grid"
+        class="grid grid-cols-1 md:grid-cols-2 gap-6 reveal-stagger relative"
+      >
+        <!-- PROJEKAT 3 (Usklađen ID i dodat data-tags za filter) -->
+        <div
+          data-project="project-3"
+          role="group"
+          tabindex="0"
+          class="project-card text-left w-full group bg-slate-900/20 border border-slate-900 rounded-xl overflow-hidden hover:border-slate-800 hover:bg-slate-900/30 transition-all flex flex-col justify-between cursor-pointer focus:outline-none focus:ring-2 focus:ring-indigo-500/40"
+          data-tags="node supabase postgresql swagger"
+        >
+          <!-- Gornji dio -->
+          <div class="p-6 w-full">
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs text-gray-500 font-mono"
+                >NODE.JS / SUPABASE / POSTGRESQL</span
+              >
+              <span class="text-[11px] font-mono text-gray-600">2026</span>
+            </div>
+
+            <h3
+              class="text-xl font-bold text-gray-100 group-hover:text-indigo-400 transition-colors mb-2"
+            >
+              AUTH System
+            </h3>
+
+            <p class="text-gray-400 text-sm leading-relaxed">
+              A secure authentication and authorization gateway integrated with
+              a modern headless backend.
+            </p>
+          </div>
+
+          <!-- Donji dio: Img (lijevo) i GitHub (desno) -->
+          <div
+            class="px-6 pb-6 pt-4 border-t border-slate-900/40 mt-auto flex items-center justify-between w-full"
+          >
+            <!-- LIJEVO: Prilagođen IMG tag za tvoju putanju slika -->
+            <div class="flex items-center">
+              <img
+                src="images/icons8-nodejs-48.png"
+                alt="Tech Stack"
+                class="h-5 w-auto object-contain pointer-events-none opacity-80 group-hover:opacity-100 transition-opacity mr-4"
+              />
+              <img
+                src="images/icons8-express-js-48.png"
+                alt="Tech Stack"
+                class="h-5 w-auto object-contain pointer-events-none opacity-80 group-hover:opacity-100 transition-opacity mr-4"
+              />
+              <img
+                src="images/icons8-supabase-48.png"
+                alt="Tech Stack"
+                class="h-5 w-auto object-contain pointer-events-none opacity-80 group-hover:opacity-100 transition-opacity mr-4"
+              />
+              <img
+                src="images/icons8-postgresql-48.png"
+                alt="Tech Stack"
+                class="h-5 w-auto object-contain pointer-events-none opacity-80 group-hover:opacity-100 transition-opacity mr-2"
+              />
+            </div>
+
+            <!-- DESNO: GitHub dugme -->
+            <div class="flex items-center">
+              <a
+                href="https://github.com/Saban2412"
+                target="_blank"
+                rel="noreferrer"
+                onclick="event.stopPropagation()"
+                class="p-2 text-gray-400 hover:text-white bg-slate-950/40 hover:bg-slate-950 rounded-md border border-slate-900 hover:border-slate-800 transition-all relative z-10"
+                title="GitHub Kod"
+              >
+                <svg
+                  class="w-3.5 h-3.5"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.462-1.11-1.462-.908-.62.069-.061.069-.061 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.579.688.481C19.137 20.162 22 16.418 22 12c0-5.523-4.477-10-10-10z"
+                  ></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- PROJEKAT 1 (Usklađen ID i dodat data-tags za filter) -->
+        <div
+          data-project="project-1"
+          role="group"
+          tabindex="0"
+          class="project-card text-left w-full group bg-slate-900/20 border border-slate-900 rounded-xl overflow-hidden hover:border-slate-800 hover:bg-slate-900/30 transition-all flex flex-col justify-between cursor-pointer focus:outline-none focus:ring-2 focus:ring-indigo-500/40"
+          data-tags="node postgresql docker"
+        >
+          <!-- Gornji dio -->
+          <div class="p-6 w-full">
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs text-gray-500 font-mono"
+                >NODE.JS / POSTGRESQL / DOCKER</span
+              >
+              <span class="text-[11px] font-mono text-gray-600">2026</span>
+            </div>
+
+            <h3
+              class="text-xl font-bold text-gray-100 group-hover:text-indigo-400 transition-colors mb-2"
+            >
+              CRUD API
+            </h3>
+
+            <p class="text-gray-400 text-sm leading-relaxed">
+              RESTful API built with robust data modeling and relational
+              integrity.
+            </p>
+          </div>
+
+          <!-- Donji dio -->
+          <div
+            class="px-6 pb-6 pt-4 border-t border-slate-900/40 mt-auto flex items-center justify-between w-full"
+          >
+            <div class="flex items-center">
+              <img
+                src="images/icons8-nodejs-48.png"
+                alt="Tech Stack"
+                class="h-5 w-auto object-contain pointer-events-none opacity-80 group-hover:opacity-100 transition-opacity mr-4"
+              />
+              <img
+                src="images/icons8-express-js-48.png"
+                alt="Tech Stack"
+                class="h-5 w-auto object-contain pointer-events-none opacity-80 group-hover:opacity-100 transition-opacity mr-4"
+              />
+              <img
+                src="images/icons8-postgresql-48.png"
+                alt="Tech Stack"
+                class="h-5 w-auto object-contain pointer-events-none opacity-80 group-hover:opacity-100 transition-opacity mr-4"
+              />
+              <img
+                src="images/icons8-docker-48.png"
+                alt="Tech Stack"
+                class="h-5 w-auto object-contain pointer-events-none opacity-80 group-hover:opacity-100 transition-opacity mr-4"
+              />
+            </div>
+
+            <div class="flex items-center">
+              <a
+                href="https://github.com/Saban2412"
+                target="_blank"
+                rel="noreferrer"
+                onclick="event.stopPropagation()"
+                class="p-2 text-gray-400 hover:text-white bg-slate-950/40 hover:bg-slate-950 rounded-md border border-slate-900 hover:border-slate-800 transition-all relative z-10"
+                title="GitHub Kod"
+              >
+                <svg
+                  class="w-3.5 h-3.5"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.462-1.11-1.462-.908-.62.069-.061.069-.061 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.579.688.481C19.137 20.162 22 16.418 22 12c0-5.523-4.477-10-10-10z"
+                  ></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- PROJEKAT 2 (Usklađen ID i dodat data-tags za filter) -->
+        <div
+          data-project="project-2"
+          role="group"
+          tabindex="0"
+          class="project-card text-left w-full group bg-slate-900/20 border border-slate-900 rounded-xl overflow-hidden hover:border-slate-800 hover:bg-slate-900/30 transition-all flex flex-col justify-between cursor-pointer focus:outline-none focus:ring-2 focus:ring-indigo-500/40"
+          data-tags="node zod"
+        >
+          <!-- Gornji dio -->
+          <div class="p-6 w-full">
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs text-gray-500 font-mono">NODE.JS / ZOD</span>
+              <span class="text-[11px] font-mono text-gray-600">2026</span>
+            </div>
+
+            <h3
+              class="text-xl font-bold text-gray-100 group-hover:text-indigo-400 transition-colors mb-2"
+            >
+              Polite Scraper
+            </h3>
+
+            <p class="text-gray-400 text-sm leading-relaxed">
+              A highly efficient web scraping utility engineered with strict
+              rate-limiting and robust data validation routines.
+            </p>
+          </div>
+
+          <!-- Donji dio -->
+          <div
+            class="px-6 pb-6 pt-4 border-t border-slate-900/40 mt-auto flex items-center justify-between w-full"
+          >
+            <div class="flex items-center">
+              <img
+                src="images/icons8-nodejs-48.png"
+                alt="Tech Stack"
+                class="h-5 w-auto object-contain pointer-events-none opacity-80 group-hover:opacity-100 transition-opacity mr-4"
+              />
+              <img
+                src="images/icons8-express-js-48.png"
+                alt="Tech Stack"
+                class="h-5 w-auto object-contain pointer-events-none opacity-80 group-hover:opacity-100 transition-opacity mr-4"
+              />
+            </div>
+
+            <div class="flex items-center">
+              <a
+                href="https://github.com/Saban2412"
+                target="_blank"
+                rel="noreferrer"
+                onclick="event.stopPropagation()"
+                class="p-2 text-gray-400 hover:text-white bg-slate-950/40 hover:bg-slate-950 rounded-md border border-slate-900 hover:border-slate-800 transition-all relative z-10"
+                title="GitHub Kod"
+              >
+                <svg
+                  class="w-3.5 h-3.5"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.462-1.11-1.462-.908-.62.069-.061.069-.061 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.579.688.481C19.137 20.162 22 16.418 22 12c0-5.523-4.477-10-10-10z"
+                  ></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- GHOST KARTICA: NAREDNI PROJEKAT U TOKU -->
+        <div
+          class="ghost-card rounded-xl p-5 flex flex-col justify-center items-center text-center min-h-[280px] gap-3"
+        >
+          <span class="relative flex h-2.5 w-2.5">
+            <span
+              class="ping-slow absolute inline-flex h-full w-full rounded-full bg-accentPurp opacity-75"
+            ></span>
+            <span
+              class="relative inline-flex rounded-full h-2.5 w-2.5 bg-accentPurp"
+            ></span>
+          </span>
+          <p class="text-sm font-semibold text-gray-300">
+            Next project in progress
+          </p>
+          <p class="text-xs text-gray-500 max-w-[220px] leading-relaxed">
+            Something new is cooking in the backend. Check back soon.
+          </p>
+        </div>
+      </div>
+
+      <!-- Poruka kad filter ne pronađe rezultate -->
+      <p
+        id="no-results"
+        class="hidden text-center text-sm text-gray-500 font-mono py-16"
+      >
+        No projects match this filter yet — try another tag.
+      </p>
+    </section>
+
+    <!-- FOOTER -->
+    <footer
+      class="w-full max-w-6xl mx-auto px-6 py-10 border-t border-slate-900"
+    >
+      <div
+        class="flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-500 font-mono"
+      >
+        <p>&copy; 2026 Emir Šabanović. Built line by line.</p>
+        <a
+          href="index.html#contact"
+          class="hover:text-accentPurp transition-colors"
+          >Got a project in mind? Let's talk ↗</a
+        >
+      </div>
+    </footer>
+
+    <!-- GLAVNI MODAL KONTEJNER (STILIZOVAN SA INDEX STRANICE) -->
+    <div
+      id="project-modal"
+      class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm opacity-0 transition-opacity duration-300"
+    >
+      <!-- Prozor Modala -->
+      <div
+        class="modal-panel bg-cardBg border border-slate-900 w-full max-w-5xl h-[85vh] max-h-[650px] rounded-2xl shadow-2xl flex flex-col md:flex-row overflow-hidden relative"
+      >
+        <!-- Dugme za zatvaranje -->
+        <button
+          onclick="closeModal()"
+          class="absolute top-4 right-4 z-10 opacity-70 hover:opacity-100 transition-all hover:rotate-90 duration-300"
+        >
+          <img src="images/izlaz.png" alt="Zatvori" class="w-6 h-6" />
+        </button>
+
+        <!-- LIJEVA STRANA -->
+        <div
+          class="w-full md:w-1/2 p-8 flex flex-col justify-between border-b md:border-b-0 md:border-r border-slate-900/60"
+        >
+          <div>
+            <span
+              id="modal-tech"
+              class="text-[10px] font-mono text-accentPurp tracking-wider uppercase"
+              >TECH STACK</span
+            >
+            <h3 id="modal-title" class="text-xl font-bold mt-1 mb-6 text-white">
+              Project Title
+            </h3>
+
+            <div
+              class="flex gap-6 border-b border-slate-900/60 font-mono text-xs mb-4"
+            >
+              <button
+                id="modal-tab-desc"
+                onclick="switchModalTab('desc')"
+                class="pb-2 font-medium border-b-2 border-accentPurp text-white -mb-[1px] transition-all"
+              >
+                Description
+              </button>
+              <button
+                id="modal-tab-dev"
+                onclick="switchModalTab('dev')"
+                class="pb-2 font-medium border-b-2 border-transparent text-gray-500 hover:text-gray-300 -mb-[1px] transition-all"
+              >
+                Development
+              </button>
+            </div>
+
+            <div
+              class="overflow-y-auto pr-2 max-h-[320px] text-xs text-gray-400 leading-relaxed space-y-4 font-sans scrollbar-thin"
+            >
+              <div id="modal-content-desc" class="block">
+                <p id="modal-desc-text">Glavni opis projekta...</p>
+              </div>
+
+              <div id="modal-content-dev" class="hidden">
+                <p id="modal-dev-text">Tehnički detalji...</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- DESNA STRANA -->
+        <div
+          class="w-full md:w-1/2 p-8 flex flex-col justify-between bg-slate-950/20"
+        >
+          <div
+            class="relative w-full aspect-[16/10] bg-slate-950/60 border border-slate-900 rounded-xl overflow-hidden group flex items-center justify-center"
+          >
+            <img
+              id="modal-slider-img"
+              src=""
+              alt="Project screenshot"
+              class="w-full h-full object-cover transition-all duration-300"
+            />
+
+            <button
+              onclick="prevSlide()"
+              data-slide="prev"
+              class="slider-nav absolute left-3 p-1.5 rounded-md bg-slate-900/80 border border-slate-800 text-gray-400 hover:text-white text-xs font-mono transition-all"
+            >
+              ←
+            </button>
+            <button
+              onclick="nextSlide()"
+              data-slide="next"
+              class="slider-nav absolute right-3 p-1.5 rounded-md bg-slate-900/80 border border-slate-800 text-gray-400 hover:text-white text-xs font-mono transition-all"
+            >
+              →
+            </button>
+          </div>
+
+          <!-- DEMO dugme -->
+          <a
+            id="modal-demo-link"
+            href="#"
+            class="w-full text-center py-3 rounded-lg font-mono text-xs font-semibold text-gray-400 bg-transparent border border-gray-700 hover:border-gray-500 hover:text-white transition-all duration-300 mt-6 md:mt-0"
+          >
+            DEMO <span class="text-[10px]">↗</span>
+          </a>
+
+          <!-- GitHub dugme u indeks stilu -->
+          <a
+            id="modal-github-link"
+            href="#"
+            target="_blank"
+            class="btn-shine w-full text-center py-3 rounded-lg font-mono text-xs font-semibold text-white bg-accentPurp hover:bg-indigo-600 border border-accentPurp shadow-[0_0_15px_rgba(99,102,241,0.2)] hover:shadow-[0_0_25px_rgba(99,102,241,0.4)] transition-all duration-300 mt-3"
+          >
+            VIEW REPOSITORY <span class="text-[10px]">↗</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

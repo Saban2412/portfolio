@@ -1,0 +1,1295 @@
+<!doctype html>
+<html lang="bs" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Emir Šabanović</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              darkBg: "#060813", // Duboka tamna pozadina sa slike
+              cardBg: "#0b1120", // Boja pozadine za kartice
+              accentPurp: "#6366f1", // Ljubičasti akcenti
+              accentBlue: "#2563eb", // Plavi akcenti
+            },
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+              mono: ["Fira Code", "monospace"],
+            },
+          },
+        },
+      };
+    </script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Code&family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body
+    class="bg-darkBg text-white font-sans antialiased selection:bg-accentPurp/30"
+  >
+    <!-- HEADER / NAVIGATION -->
+    <header
+      id="site-header"
+      class="w-full max-w-6xl mx-auto px-6 h-20 flex items-center justify-between sticky top-0 bg-darkBg/80 backdrop-blur-md z-50 transition-shadow duration-300"
+    >
+      <div class="flex items-center gap-2 text-2xl tracking-tight">
+        <span
+          style="font-family: &quot;Alex Brush&quot;, cursive"
+          class="font-medium text-gray-200"
+          >Šabanović</span
+        >
+      </div>
+
+      <nav class="hidden md:flex items-center gap-8 text-sm text-gray-400">
+        <a
+          href="#home"
+          onclick="scrollToSection(event, 'home')"
+          class="nav-link text-white border-b-2 border-accentPurp pb-1"
+          >Početna</a
+        >
+        <a
+          href="#about"
+          onclick="scrollToSection(event, 'about')"
+          class="nav-link hover:text-white transition-colors pb-1"
+          >O Meni</a
+        >
+        <a
+          href="#projects-section"
+          onclick="scrollToSection(event, 'projects-section')"
+          class="nav-link hover:text-white transition-colors pb-1"
+          >Projekti</a
+        >
+        <a
+          href="#contact"
+          onclick="scrollToSection(event, 'contact')"
+          class="nav-link hover:text-white transition-colors pb-1"
+          >Kontakt</a
+        >
+        <a
+          href="downloads/Emir_Sabanovic_Resume.pdf"
+          download
+          class="btn-shine cv-pulse bg-red-600 hover:bg-red-500 text-white px-4 py-2 rounded-md text-xs font-semibold flex items-center gap-1.5 transition-all"
+        >
+          Preuzmi CV <span class="text-xs">↓</span>
+        </a>
+      </nav>
+
+      <!-- DESNI DIO: Zastavice i Hire Me dugme grupisani zajedno -->
+      <div class="flex items-center gap-6">
+        <!-- Kontejner za jezike sa malim razmakom -->
+        <div class="flex items-center gap-2.5">
+          <a href="index.html" class="hover:opacity-80 transition-opacity">
+            <img
+              src="images/icons8-uk-48.png"
+              alt="English"
+              class="w-5 h-auto object-contain"
+            />
+          </a>
+          <a href="bosnian.html" class="hover:opacity-80 transition-opacity">
+            <img
+              src="images/icons8-bosnia-and-herzegovina-48.png"
+              alt="Bosanski"
+              class="w-5 h-auto object-contain"
+            />
+          </a>
+        </div>
+
+        <a
+          href="https://mail.google.com/mail/?view=cm&fs=1&to=emir.sabanovic.23@size.ba"
+          target="_blank"
+          rel="noreferrer"
+          class="btn-shine bg-accentPurp hover:bg-indigo-600 px-5 py-2.5 text-xs font-semibold rounded-md transition-all flex items-center gap-1"
+        >
+          Zaposli Me <span class="text-sm">↗</span>
+        </a>
+        <button
+          type="button"
+          id="menu-toggle"
+          class="md:hidden p-2 text-gray-300 hover:text-white"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+          onclick="toggleMobileMenu()"
+        >
+          <span class="sr-only">Menu</span>
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
+        </button>
+      </div>
+    </header>
+    <nav
+      id="mobile-menu"
+      class="hidden md:hidden border-b border-slate-800 bg-darkBg/95 px-6 py-3 text-sm text-gray-300 sticky top-20 z-40"
+    >
+      <a
+        href="#home"
+        onclick="scrollToSection(event, 'home')"
+        class="block py-2.5"
+        >Početna</a
+      >
+      <a
+        href="#about"
+        onclick="scrollToSection(event, 'about')"
+        class="block py-2.5"
+        >O meni</a
+      >
+      <a
+        href="#projects-section"
+        onclick="scrollToSection(event, 'projects-section')"
+        class="block py-2.5"
+        >Projekti</a
+      >
+      <a
+        href="#contact"
+        onclick="scrollToSection(event, 'contact')"
+        class="block py-2.5"
+        >Kontakt</a
+      >
+      <a
+        href="downloads/Emir_Sabanovic_Resume.pdf"
+        download
+        class="block py-2.5 text-red-400"
+        >Preuzmi CV</a
+      >
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section id="home" class="relative w-full overflow-hidden">
+      <div class="aurora w-72 h-72 bg-accentPurp -top-10 left-[2%]"></div>
+      <div
+        class="aurora w-80 h-80 bg-accentBlue top-1/3 right-[4%]"
+        style="animation-delay: -6s"
+      ></div>
+      <div
+        class="w-full max-w-6xl mx-auto px-6 py-12 md:py-24 grid grid-cols-1 md:grid-cols-12 gap-12 items-center relative z-10"
+      >
+        <!-- Lijeva strana (Sadržaj) -->
+        <div class="md:col-span-7 z-10 reveal">
+          <span
+            class="text-xs font-semibold uppercase tracking-widest bg-accentPurp/10 text-accentPurp px-3 py-1.5 rounded-full"
+            >Student · Fokusiran na Backend</span
+          >
+          <h1
+            class="text-5xl md:text-7xl font-bold tracking-tight mt-6 leading-tight"
+          >
+            Hej, ja sam <span class="shimmer-text">Emir</span><br />
+            Softver Inženjer
+          </h1>
+          <p
+            class="text-gray-400 mt-6 max-w-lg text-base md:text-lg leading-relaxed"
+          >
+            Fokusiran na izgradnju stabilnih i pouzdanih backend sistema
+            koristeći Node.js, Express i SQL. Sposoban sam transformisati
+            nejasne poslovne zahtjeve u proširive backend sisteme.
+          </p>
+          <div class="flex flex-wrap gap-4 mt-8">
+            <button
+              onclick="scrollToSection(event, 'projects-section')"
+              class="btn-shine bg-accentPurp hover:bg-indigo-600 px-6 py-3.5 text-sm font-semibold rounded-md shadow-lg shadow-accentPurp/20 transition-all flex items-center gap-2"
+            >
+              Moji Projekti <span>↗</span>
+            </button>
+            <a
+              href="downloads/Emir_Sabanovic_Resume.pdf"
+              download
+              class="btn-shine border border-gray-700 hover:border-gray-500 bg-transparent px-6 py-3.5 text-sm font-semibold rounded-md transition-all flex items-center gap-2"
+            >
+              Preuzmi CV <span class="text-xs">↓</span>
+            </a>
+          </div>
+          <!-- Tech ikone ispod teksta -->
+          <div class="mt-12">
+            <p class="text-xs font-mono text-gray-500 uppercase tracking-wider">
+              Tehnologije sa kojima radim
+            </p>
+            <div class="flex flex-wrap gap-5 mt-4 text-2xl text-gray-400">
+              <img src="images/icons8-javascript-48.png" alt="" />
+              <img src="images/icons8-nodejs-48.png" alt="" />
+              <img src="images/icons8-express-js-48.png" alt="" />
+              <img src="images/icons8-postgresql-48.png" alt="" />
+              <img src="images/icons8-docker-48.png" alt="" />
+              <img src="images/icons8-git-48.png" alt="" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Desna strana (Profil i kod) -->
+        <div
+          class="md:col-span-5 relative w-full flex items-center justify-center md:justify-end reveal"
+          style="transition-delay: 150ms"
+        >
+          <!-- Kontejner za sliku -->
+          <div
+            class="relative w-full max-w-sm md:max-w-md aspect-[4/5] overflow-hidden rounded-xl"
+          >
+            <img
+              src="images/moja-Photoroom.png"
+              alt="Emir Profile"
+              class="w-full h-full object-cover"
+            />
+          </div>
+
+          <!-- Plutajući prozor sa kodom — spušten na dno i pomjeren pola van slike desno -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT / STATS SECTION -->
+    <section
+      id="about"
+      class="w-full max-w-6xl mx-auto px-6 py-20 grid grid-cols-1 md:grid-cols-2 gap-12 items-center"
+    >
+      <div class="reveal">
+        <span
+          class="text-xs font-semibold text-accentPurp uppercase tracking-widest"
+          >o meni</span
+        >
+        <h2 class="text-3xl md:text-4xl font-bold mt-4">
+          Backend orijentisan, trenutno razvijam u Node.js-u.
+        </h2>
+        <p class="text-gray-400 mt-6 leading-relaxed">
+          Student softverskog inženjerstva na praksi za "AI Fluency & Backend AI
+          Engineering". Radim na izgradnji stvarnih backend sistema i učim kako
+          koristiti vještačku inteligenciju kao partnera za razmišljanje, a ne
+          kao prečicu. Trenutno sam duboko u Node.js-u, Expressu i SQL-u.
+        </p>
+        <a
+          href="#contact"
+          onclick="scrollToSection(event, 'contact')"
+          class="btn-shine mt-8 inline-flex border border-gray-700 hover:border-gray-500 px-5 py-2.5 text-xs font-semibold rounded-md items-center gap-2 transition-all"
+        >
+          Kontaktiraj me <span>↗</span>
+        </a>
+      </div>
+
+      <img
+        src="images/3d-Photoroom.png"
+        alt="3D Code Window"
+        class="ml-0 reveal"
+        style="transition-delay: 150ms"
+      />
+    </section>
+
+    <!-- TABS NAVIGACIJA SECTION -->
+    <!-- TABS NAVIGACIJA SECTION -->
+    <section
+      id="projects-section"
+      class="w-full max-w-6xl mx-auto px-6 pt-16 pb-12 reveal"
+    >
+      <!-- Minimalistička linija preko cijele širine, slično glavnom meniju -->
+      <div class="flex gap-8 border-b border-slate-800/80 font-mono text-xs">
+        <button
+          id="tab-projects"
+          onclick="switchTab('projects')"
+          class="pb-4 font-medium transition-all duration-200 text-white border-b-2 border-blue-500 -mb-[1px]"
+        >
+          Projekti
+        </button>
+
+        <button
+          id="tab-certificates"
+          onclick="switchTab('certificates')"
+          class="pb-4 font-medium transition-all duration-200 text-gray-500 hover:text-gray-300 border-b-2 border-transparent -mb-[1px]"
+        >
+          Certifikati
+        </button>
+
+        <button
+          id="tab-stack"
+          onclick="switchTab('stack')"
+          class="pb-4 font-medium transition-all duration-200 text-gray-500 hover:text-gray-300 border-b-2 border-transparent -mb-[1px]"
+        >
+          Moj Tech Stack
+        </button>
+      </div>
+    </section>
+
+    <!-- TABS SADRŽAJ -->
+    <section class="w-full max-w-6xl mx-auto px-6 pb-24">
+      <!-- 1. TAB: PROJECTS (Defaultno vidljiv) -->
+      <div
+        id="content-projects"
+        class="block opacity-100 transition-opacity duration-300"
+      >
+        <!-- Grid sa tačno 3 kolone na desktopu -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 reveal-stagger">
+          <!-- KARTICA 1 -->
+          <div
+            class="tilt-card bg-cardBg/40 border border-slate-800/60 rounded-xl p-5 flex flex-col justify-between hover:border-slate-700/80 transition-all group"
+          >
+            <div>
+              <!-- Prostor za 3D sliku (Kompaktna visina, savršena za tech ilustracije) -->
+              <!-- Prostor za mockup sliku - SADA POKRIVA CIJELI PROSTOR -->
+              <div
+                class="w-full aspect-[16/10] bg-slate-950/40 rounded-lg border border-slate-900 overflow-hidden mb-4 flex items-center justify-center group-hover:border-blue-900/50 transition-all duration-300"
+              >
+                <img
+                  src="images/mockup-taskapi.png"
+                  alt="Project Mockup"
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+
+              <span class="text-[10px] font-mono text-accentPurp"
+                >NODE.JS / POSTGRESQL / DOCKER</span
+              >
+              <h3 class="text-lg font-bold mt-1 mb-2">CRUD API</h3>
+              <p class="text-xs text-gray-400 leading-relaxed mb-6">
+                RESTful API izgrađen uz stabilno modeliranje podataka i
+                relacioni integritet.
+              </p>
+            </div>
+            <button
+              onclick="openModal('project-1')"
+              class="w-full text-xs font-semibold text-white bg-slate-800/80 hover:bg-slate-800 py-2.5 rounded-md transition-all"
+            >
+              Vidi detalje
+            </button>
+          </div>
+
+          <!-- Ovdje idu Kartica 2 i Kartica 3 sa istom strukturom -->
+          <div
+            class="tilt-card bg-cardBg/40 border border-slate-800/60 rounded-xl p-5 flex flex-col justify-between hover:border-slate-700/80 transition-all group"
+          >
+            <div>
+              <!-- Prostor za 3D sliku (Kompaktna visina, savršena za tech ilustracije) -->
+              <!-- Prostor za mockup sliku - SADA POKRIVA CIJELI PROSTOR -->
+              <div
+                class="w-full aspect-[16/10] bg-slate-950/40 rounded-lg border border-slate-900 overflow-hidden mb-4 flex items-center justify-center group-hover:border-blue-900/50 transition-all duration-300"
+              >
+                <img
+                  src="images/scraper.png"
+                  alt="Project Mockup"
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+
+              <span class="text-[10px] font-mono text-accentPurp"
+                >NODE.JS / ZOD</span
+              >
+              <h3 class="text-lg font-bold mt-1 mb-2">Polite Scraper</h3>
+              <p class="text-xs text-gray-400 leading-relaxed mb-6">
+                Visoko efikasan alat za web scraping, projektovan sa strogim
+                ograničenjem brzine (rate-limiting) i stabilnim rutinama za
+                validaciju podataka.
+              </p>
+            </div>
+            <button
+              onclick="openModal('project-2')"
+              class="w-full text-xs font-semibold text-white bg-slate-800/80 hover:bg-slate-800 py-2.5 rounded-md transition-all"
+            >
+              Vidi detalje
+            </button>
+          </div>
+          <div
+            class="tilt-card bg-cardBg/40 border border-slate-800/60 rounded-xl p-5 flex flex-col justify-between hover:border-slate-700/80 transition-all group"
+          >
+            <div>
+              <!-- Prostor za 3D sliku (Kompaktna visina, savršena za tech ilustracije) -->
+              <!-- Prostor za mockup sliku - SADA POKRIVA CIJELI PROSTOR -->
+              <div
+                class="w-full aspect-[16/10] bg-slate-950/40 rounded-lg border border-slate-900 overflow-hidden mb-4 flex items-center justify-center group-hover:border-blue-900/50 transition-all duration-300"
+              >
+                <img
+                  src="images/Screenshot 2026-08-29 084623.png"
+                  alt="Project Mockup"
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+
+              <span class="text-[10px] font-mono text-accentPurp"
+                >NODE.JS / SUPABASE</span
+              >
+              <h3 class="text-lg font-bold mt-1 mb-2">AUTH Sistem</h3>
+              <p class="text-xs text-gray-400 leading-relaxed mb-6">
+                Siguran autentifikacijski i autorizacijski gateway spreman za
+                produkciju, integrisan sa modernim headless backendom.
+              </p>
+            </div>
+            <button
+              onclick="openModal('project-3')"
+              class="w-full text-xs font-semibold text-white bg-slate-800/80 hover:bg-slate-800 py-2.5 rounded-md transition-all"
+            >
+              Vidi detalje
+            </button>
+          </div>
+        </div>
+
+        <!-- Centrirano "View All" dugme koje vodi na zasebnu stranicu -->
+        <div class="flex justify-center mt-8">
+          <a
+            href="projects_b.html"
+            class="btn-shine inline-flex items-center gap-2 px-5 py-2.5 font-mono text-xs text-gray-400 hover:text-white border border-slate-800/80 hover:border-slate-700 rounded-lg bg-slate-900/40 transition-all"
+          >
+            Vidi Sve Projekte <span class="text-[10px]">→</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- 2. TAB: CERTIFICATES (Sakriven na početku) -->
+      <div
+        id="content-certificates"
+        class="hidden opacity-0 transition-opacity duration-300"
+      >
+        <!-- Isti grid sa tačno 3 kolone -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6 reveal-stagger">
+          <!-- SERTIFIKAT KARTICA 1 -->
+          <div
+            class="tilt-card bg-cardBg/40 border border-slate-800/60 rounded-xl p-5 flex flex-col justify-between hover:border-slate-700/80 transition-all group"
+          >
+            <div>
+              <!-- Prostor za sliku sertifikata ili tech bedž -->
+              <div
+                class="w-full aspect-[16/10] bg-slate-950/40 rounded-lg border border-slate-900 overflow-hidden mb-4 flex items-center justify-center p-4"
+              >
+                <img
+                  src="images/claude_platform_101.jpg"
+                  alt="Claude Platform 101"
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+
+              <span class="text-[10px] font-mono text-emerald-400"
+                >CLAUDE / AI AGENTS / MCP SERVERS</span
+              >
+              <h3 class="text-lg font-bold mt-1 mb-2">Claude Platform 101</h3>
+              <p class="text-xs text-gray-400 leading-relaxed mb-6">
+                Sertifikat o završenom kursu razvoja AI agenata i implementacije
+                MCP servera.
+              </p>
+            </div>
+            <button
+              onclick="openCertModal('cert-1')"
+              class="w-full text-xs font-semibold text-white bg-slate-800/80 hover:bg-slate-800 py-2.5 rounded-md transition-all"
+            >
+              Vidi detalje
+            </button>
+          </div>
+
+          <!-- Ovdje idu Sertifikat 2 i Sertifikat 3 -->
+          <div
+            class="tilt-card bg-cardBg/40 border border-slate-800/60 rounded-xl p-5 flex flex-col justify-between hover:border-slate-700/80 transition-all group"
+          >
+            <div>
+              <!-- Prostor za sliku sertifikata ili tech bedž -->
+              <div
+                class="w-full aspect-[16/10] bg-slate-950/40 rounded-lg border border-slate-900 overflow-hidden mb-4 flex items-center justify-center p-4"
+              >
+                <img
+                  src="images/CLAUDE_101.jpg"
+                  alt="Claude 101"
+                  class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+
+              <span class="text-[10px] font-mono text-emerald-400"
+                >CLAUDE / AI</span
+              >
+              <h3 class="text-lg font-bold mt-1 mb-2">Claude 101</h3>
+              <p class="text-xs text-gray-400 leading-relaxed mb-6">
+                Osnove rada s Claudeom: prompting, tokovi rada i praktičan
+                razvoj uz AI.
+              </p>
+            </div>
+            <button
+              onclick="openCertModal('cert-2')"
+              class="w-full text-xs font-semibold text-white bg-slate-800/80 hover:bg-slate-800 py-2.5 rounded-md transition-all"
+            >
+              Vidi detalje
+            </button>
+          </div>
+          <div
+            class="tilt-card bg-cardBg/40 border border-slate-800/60 rounded-xl p-5 flex flex-col justify-between hover:border-slate-700/80 transition-all group"
+          >
+            <div>
+              <!-- Prostor za sliku sertifikata ili tech bedž -->
+              <div
+                class="w-full aspect-[16/10] bg-slate-950/40 rounded-lg border border-slate-900 overflow-hidden mb-4 flex items-center justify-center p-4"
+              >
+                <img
+                  src="images/AI_FLUENCY_CERT.jpg"
+                  alt="AI Fluency"
+                  class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+
+              <span class="text-[10px] font-mono text-emerald-400"
+                >CLAUDE / AI FLUENCY</span
+              >
+              <h3 class="text-lg font-bold mt-1 mb-2">
+                AI Fluency: Framework & Foundations
+              </h3>
+              <p class="text-xs text-gray-400 leading-relaxed mb-6">
+                Okvir za korištenje AI-a kao partnera za razmišljanje u
+                inženjerskom radu, ne kao prečice.
+              </p>
+            </div>
+            <button
+              onclick="openCertModal('cert-3')"
+              class="w-full text-xs font-semibold text-white bg-slate-800/80 hover:bg-slate-800 py-2.5 rounded-md transition-all"
+            >
+              Vidi detalje
+            </button>
+          </div>
+        </div>
+
+        <!-- Dodatni sertifikati koji se prikazuju nakon klika na "View All" -->
+        <div id="cert-extra-wrap">
+          <div id="cert-extra-inner">
+            <div
+              class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-6"
+              id="cert-extra-grid"
+            >
+              <!-- SERTIFIKAT 4 -->
+              <div
+                class="tilt-card bg-cardBg/40 border border-slate-800/60 rounded-xl p-5 flex flex-col justify-between hover:border-slate-700/80 transition-all group"
+              >
+                <div>
+                  <div
+                    class="w-full aspect-[16/10] bg-slate-950/40 rounded-lg border border-slate-900 overflow-hidden mb-4 flex items-center justify-center p-4"
+                  >
+                    <img
+                      src="images/Cowork_cert_page-0001.jpg"
+                      alt="Claude Cowork"
+                      class="max-h-full max-w-full object-contain group-hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
+                  <span class="text-[10px] font-mono text-emerald-400"
+                    >CLAUDE COWORK / AI</span
+                  >
+                  <h3 class="text-lg font-bold mt-1 mb-2">
+                    Introduction to Claude Cowork
+                  </h3>
+                  <p class="text-xs text-gray-400 leading-relaxed mb-6">
+                    Rad s Claude Cowork za kolaborativne, agentske tokove
+                    razvoja.
+                  </p>
+                </div>
+                <button
+                  onclick="openCertModal('cert-4')"
+                  class="w-full text-xs font-semibold text-white bg-slate-800/80 hover:bg-slate-800 py-2.5 rounded-md transition-all"
+                >
+                  Vidi detalje
+                </button>
+              </div>
+              <!-- SERTIFIKAT 5 -->
+              <div
+                class="tilt-card bg-cardBg/40 border border-slate-800/60 rounded-xl p-5 flex flex-col justify-between hover:border-slate-700/80 transition-all group"
+              >
+                <div>
+                  <div
+                    class="w-full aspect-[16/10] bg-slate-950/40 rounded-lg border border-slate-900 overflow-hidden mb-4 flex items-center justify-center p-4"
+                  >
+                    <div
+                      class="text-[10px] font-mono text-gray-600 px-4 text-center"
+                    >
+                      Preview soon
+                    </div>
+                  </div>
+                  <span class="text-[10px] font-mono text-emerald-400"
+                    >GOOGLE / CLOUD</span
+                  >
+                  <h3 class="text-lg font-bold mt-1 mb-2">
+                    Google Cloud Digital Leader
+                  </h3>
+                  <p class="text-xs text-gray-400 leading-relaxed mb-6">
+                    Osnove cloud infrastrukture, usluga i sigurnosti unutar
+                    Google Cloud platforme.
+                  </p>
+                </div>
+                <button
+                  onclick="openCertModal('cert-5')"
+                  class="w-full text-xs font-semibold text-white bg-slate-800/80 hover:bg-slate-800 py-2.5 rounded-md transition-all"
+                >
+                  Vidi detalje
+                </button>
+              </div>
+              <!-- SERTIFIKAT 6 -->
+              <div
+                class="tilt-card bg-cardBg/40 border border-slate-800/60 rounded-xl p-5 flex flex-col justify-between hover:border-slate-700/80 transition-all group"
+              >
+                <div>
+                  <div
+                    class="w-full aspect-[16/10] bg-slate-950/40 rounded-lg border border-slate-900 overflow-hidden mb-4 flex items-center justify-center p-4"
+                  >
+                    <div
+                      class="text-[10px] font-mono text-gray-600 px-4 text-center"
+                    >
+                      Preview soon
+                    </div>
+                  </div>
+                  <span class="text-[10px] font-mono text-emerald-400"
+                    >META / BACKEND</span
+                  >
+                  <h3 class="text-lg font-bold mt-1 mb-2">
+                    Meta Backend Developer
+                  </h3>
+                  <p class="text-xs text-gray-400 leading-relaxed mb-6">
+                    Server-side razvoj, API dizajn i osnove sigurnosti backend
+                    aplikacija.
+                  </p>
+                </div>
+                <button
+                  onclick="openCertModal('cert-6')"
+                  class="w-full text-xs font-semibold text-white bg-slate-800/80 hover:bg-slate-800 py-2.5 rounded-md transition-all"
+                >
+                  Vidi detalje
+                </button>
+              </div>
+              <!-- SERTIFIKAT 7 -->
+              <div
+                class="tilt-card bg-cardBg/40 border border-slate-800/60 rounded-xl p-5 flex flex-col justify-between hover:border-slate-700/80 transition-all group"
+              >
+                <div>
+                  <div
+                    class="w-full aspect-[16/10] bg-slate-950/40 rounded-lg border border-slate-900 overflow-hidden mb-4 flex items-center justify-center p-4"
+                  >
+                    <div
+                      class="text-[10px] font-mono text-gray-600 px-4 text-center"
+                    >
+                      Preview soon
+                    </div>
+                  </div>
+                  <span class="text-[10px] font-mono text-emerald-400"
+                    >JAVASCRIPT / API</span
+                  >
+                  <h3 class="text-lg font-bold mt-1 mb-2">
+                    APIs and Microservices
+                  </h3>
+                  <p class="text-xs text-gray-400 leading-relaxed mb-6">
+                    Izrada i testiranje REST API-ja i mikroservisa u
+                    Node.js/Express okruženju.
+                  </p>
+                </div>
+                <button
+                  onclick="openCertModal('cert-7')"
+                  class="w-full text-xs font-semibold text-white bg-slate-800/80 hover:bg-slate-800 py-2.5 rounded-md transition-all"
+                >
+                  Vidi detalje
+                </button>
+              </div>
+              <!-- SERTIFIKAT 8 -->
+              <div
+                class="tilt-card bg-cardBg/40 border border-slate-800/60 rounded-xl p-5 flex flex-col justify-between hover:border-slate-700/80 transition-all group"
+              >
+                <div>
+                  <div
+                    class="w-full aspect-[16/10] bg-slate-950/40 rounded-lg border border-slate-900 overflow-hidden mb-4 flex items-center justify-center p-4"
+                  >
+                    <div
+                      class="text-[10px] font-mono text-gray-600 px-4 text-center"
+                    >
+                      Preview soon
+                    </div>
+                  </div>
+                  <span class="text-[10px] font-mono text-emerald-400"
+                    >API / TESTING</span
+                  >
+                  <h3 class="text-lg font-bold mt-1 mb-2">
+                    Postman API Fundamentals
+                  </h3>
+                  <p class="text-xs text-gray-400 leading-relaxed mb-6">
+                    Testiranje, dokumentovanje i automatizacija API poziva kroz
+                    Postman kolekcije.
+                  </p>
+                </div>
+                <button
+                  onclick="openCertModal('cert-8')"
+                  class="w-full text-xs font-semibold text-white bg-slate-800/80 hover:bg-slate-800 py-2.5 rounded-md transition-all"
+                >
+                  Vidi detalje
+                </button>
+              </div>
+              <!-- SERTIFIKAT 9 -->
+              <div
+                class="tilt-card bg-cardBg/40 border border-slate-800/60 rounded-xl p-5 flex flex-col justify-between hover:border-slate-700/80 transition-all group"
+              >
+                <div>
+                  <div
+                    class="w-full aspect-[16/10] bg-slate-950/40 rounded-lg border border-slate-900 overflow-hidden mb-4 flex items-center justify-center p-4"
+                  >
+                    <div
+                      class="text-[10px] font-mono text-gray-600 px-4 text-center"
+                    >
+                      Preview soon
+                    </div>
+                  </div>
+                  <span class="text-[10px] font-mono text-emerald-400"
+                    >GIT / VERSION CONTROL</span
+                  >
+                  <h3 class="text-lg font-bold mt-1 mb-2">
+                    GitHub Foundations
+                  </h3>
+                  <p class="text-xs text-gray-400 leading-relaxed mb-6">
+                    Osnove verzionisanja koda, grananja i saradnje na projektima
+                    kroz GitHub.
+                  </p>
+                </div>
+                <button
+                  onclick="openCertModal('cert-9')"
+                  class="w-full text-xs font-semibold text-white bg-slate-800/80 hover:bg-slate-800 py-2.5 rounded-md transition-all"
+                >
+                  Vidi detalje
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Centrirano "View All" dugme za sertifikate -->
+        <div class="flex justify-center mt-2">
+          <button
+            id="cert-toggle-btn"
+            onclick="toggleAllCertificates()"
+            class="btn-shine inline-flex items-center gap-2 px-5 py-2.5 font-mono text-xs text-gray-400 hover:text-white border border-slate-800/80 hover:border-slate-700 rounded-lg bg-slate-900/40 transition-all"
+          >
+            <span id="cert-toggle-label">Prikaži sve certifikate</span>
+            <svg
+              id="cert-toggle-chevron"
+              class="chevron-rotate"
+              width="10"
+              height="10"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="3"
+            >
+              <path d="M6 9l6 6 6-6" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- 3. TAB: TECH STACK -->
+      <div
+        id="content-stack"
+        class="hidden opacity-0 transition-opacity duration-300"
+      >
+        <div class="space-y-10 mx-auto">
+          <!-- SEKCIJA 1: CORE BACKEND -->
+          <div class="space-y-3">
+            <h4
+              class="text-xs font-mono text-gray-500 uppercase tracking-wider"
+            >
+              Osnovni backend i runtime-ovi
+            </h4>
+            <div class="flex flex-wrap gap-3">
+              <!-- JS Badge -->
+              <div
+                class="flex items-center gap-2.5 px-4 py-2.5 bg-cardBg/40 border border-slate-800/80 hover:border-slate-700/80 rounded-lg text-xs text-gray-200 transition-all font-mono hover:bg-slate-900/50 cursor-default"
+              >
+                <img
+                  src="images/icons8-javascript-48.png"
+                  alt="JavaScript"
+                  class="w-4 h-4 object-contain"
+                />
+                <span>JavaScript</span>
+              </div>
+              <!-- Node.js Badge -->
+              <div
+                class="flex items-center gap-2.5 px-4 py-2.5 bg-cardBg/40 border border-slate-800/80 hover:border-slate-700/80 rounded-lg text-xs text-gray-200 transition-all font-mono hover:bg-slate-900/50 cursor-default"
+              >
+                <img
+                  src="images/icons8-nodejs-48.png"
+                  alt="JavaScript"
+                  class="w-4 h-4 object-contain"
+                />
+                <span>Node.js</span>
+              </div>
+              <!-- Express Badge -->
+              <div
+                class="flex items-center gap-2.5 px-4 py-2.5 bg-cardBg/40 border border-slate-800/80 hover:border-slate-700/80 rounded-lg text-xs text-gray-200 transition-all font-mono hover:bg-slate-900/50 cursor-default"
+              >
+                <img
+                  src="images/icons8-express-js-48.png"
+                  alt="JavaScript"
+                  class="w-4 h-4 object-contain"
+                />
+                <span>Express.js</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- SEKCIJA 2: DATABASES & CLOUD -->
+          <div class="space-y-3">
+            <h4
+              class="text-xs font-mono text-gray-500 uppercase tracking-wider"
+            >
+              baze Podataka i Razvoj u Oblaku
+            </h4>
+            <div class="flex flex-wrap gap-3">
+              <!-- PostgreSQL -->
+              <div
+                class="flex items-center gap-2.5 px-4 py-2.5 bg-cardBg/40 border border-slate-800/80 hover:border-slate-700/80 rounded-lg text-xs text-gray-200 transition-all font-mono hover:bg-slate-900/50 cursor-default"
+              >
+                <img
+                  src="images/icons8-postgresql-48.png"
+                  alt="JavaScript"
+                  class="w-4 h-4 object-contain"
+                />
+                <span>PostgreSQL</span>
+              </div>
+              <!-- SQL -->
+              <div
+                class="flex items-center gap-2.5 px-4 py-2.5 bg-cardBg/40 border border-slate-800/80 hover:border-slate-700/80 rounded-lg text-xs text-gray-200 transition-all font-mono hover:bg-slate-900/50 cursor-default"
+              >
+                <img
+                  src="images/icons8-sql-48.png"
+                  alt="JavaScript"
+                  class="w-4 h-4 object-contain"
+                />
+                <span>SQL</span>
+              </div>
+              <!-- Supabase -->
+              <div
+                class="flex items-center gap-2.5 px-4 py-2.5 bg-cardBg/40 border border-slate-800/80 hover:border-slate-700/80 rounded-lg text-xs text-gray-200 transition-all font-mono hover:bg-slate-900/50 cursor-default"
+              >
+                <img
+                  src="images/icons8-supabase-48.png"
+                  alt="JavaScript"
+                  class="w-4 h-4 object-contain"
+                />
+                <span>Supabase</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- SEKCIJA 3: TOOLS & DEVOPS -->
+          <div class="space-y-3">
+            <h4
+              class="text-xs font-mono text-gray-500 uppercase tracking-wider"
+            >
+              DevTools & DevOps
+            </h4>
+            <div class="flex flex-wrap gap-3">
+              <!-- Docker -->
+              <div
+                class="flex items-center gap-2.5 px-4 py-2.5 bg-cardBg/40 border border-slate-800/80 hover:border-slate-700/80 rounded-lg text-xs text-gray-200 transition-all font-mono hover:bg-slate-900/50 cursor-default"
+              >
+                <img
+                  src="images/icons8-docker-48.png"
+                  alt="JavaScript"
+                  class="w-4 h-4 object-contain"
+                />
+                <span>Docker</span>
+              </div>
+              <!-- Git -->
+              <div
+                class="flex items-center gap-2.5 px-4 py-2.5 bg-cardBg/40 border border-slate-800/80 hover:border-slate-700/80 rounded-lg text-xs text-gray-200 transition-all font-mono hover:bg-slate-900/50 cursor-default"
+              >
+                <img
+                  src="images/icons8-git-48.png"
+                  alt="JavaScript"
+                  class="w-4 h-4 object-contain"
+                />
+                <span>Git</span>
+              </div>
+              <!-- GitHub -->
+              <div
+                class="flex items-center gap-2.5 px-4 py-2.5 bg-cardBg/40 border border-slate-800/80 hover:border-slate-700/80 rounded-lg text-xs text-gray-200 transition-all font-mono hover:bg-slate-900/50 cursor-default"
+              >
+                <img
+                  src="images/icons8-github-48.png"
+                  alt="JavaScript"
+                  class="w-4 h-4 object-contain"
+                />
+                <span>GitHub</span>
+              </div>
+              <!-- Swagger -->
+              <div
+                class="flex items-center gap-2.5 px-4 py-2.5 bg-cardBg/40 border border-slate-800/80 hover:border-slate-700/80 rounded-lg text-xs text-gray-200 transition-all font-mono hover:bg-slate-900/50 cursor-default"
+              >
+                <img
+                  src="images/icons8-swagger-48.png"
+                  alt="JavaScript"
+                  class="w-4 h-4 object-contain"
+                />
+                <span>Swagger</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- SEKCIJA 4: AI & NEXT-GEN -->
+          <div class="space-y-3">
+            <div class="flex items-center gap-2">
+              <h4
+                class="text-xs font-mono text-gray-500 uppercase tracking-wider"
+              >
+                AI i Next-Gen arhitektura
+              </h4>
+              <span
+                class="text-[9px] font-mono bg-blue-950 text-blue-400 border border-blue-900/50 px-1.5 py-0.5 rounded uppercase tracking-tight"
+                >istraživanje</span
+              >
+            </div>
+            <div class="flex flex-wrap gap-3">
+              <!-- AI Agents -->
+              <div
+                class="flex items-center gap-2.5 px-4 py-2.5 bg-blue-950/10 border border-blue-900/30 hover:border-blue-800/50 rounded-lg text-xs text-blue-300 transition-all font-mono cursor-default"
+              >
+                <img
+                  src="images/icons8-ai-agent-48.png"
+                  alt="JavaScript"
+                  class="w-4 h-4 object-contain"
+                />
+                <span>AI Agenti</span>
+              </div>
+              <!-- RAG Systems -->
+              <div
+                class="flex items-center gap-2.5 px-4 py-2.5 bg-blue-950/10 border border-blue-900/30 hover:border-blue-800/50 rounded-lg text-xs text-blue-300 transition-all font-mono cursor-default"
+              >
+                <img
+                  src="images/icons8-ai-file-48.png"
+                  alt="JavaScript"
+                  class="w-4 h-4 object-contain"
+                />
+                <span>RAG Sistemi</span>
+              </div>
+              <!-- MCP Servers -->
+              <div
+                class="flex items-center gap-2.5 px-4 py-2.5 bg-blue-950/10 border border-blue-900/30 hover:border-blue-800/50 rounded-lg text-xs text-blue-300 transition-all font-mono cursor-default"
+              >
+                <img
+                  src="images/icons8-artificial-intelligence-48.png"
+                  alt="JavaScript"
+                  class="w-4 h-4 object-contain"
+                />
+                <span>MCP Serveri</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section
+      id="contact"
+      class="w-full max-w-6xl mx-auto px-6 py-20 border-t border-slate-900 grid grid-cols-1 md:grid-cols-12 gap-12 items-start"
+    >
+      <!-- Lijevo: Kontakt CTA (Sada zauzima 6 kolona radi boljeg balansa) -->
+      <div class="md:col-span-6 space-y-4 reveal">
+        <span class="text-xs font-mono text-accentPurp uppercase tracking-wider"
+          >Hajde Da Radimo Skupa</span
+        >
+        <h2 class="text-3xl font-bold">Imaš projekat na umu?</h2>
+        <p class="text-sm text-gray-400 leading-relaxed max-w-md">
+          Uvijek sam otvoren za razgovor o novim projektima, izazovima u backend
+          arhitekturi ili poslovnim prilikama. Kreirajmo nešto nevjerovatno
+          zajedno!
+        </p>
+        <a
+          href="https://mail.google.com/mail/?view=cm&fs=1&to=emir.sabanovic.23@size.ba"
+          target="_blank"
+          rel="noreferrer"
+          class="btn-shine inline-flex bg-accentPurp hover:bg-indigo-600 px-5 py-3 text-xs font-semibold rounded-md items-center gap-2 transition-all"
+        >
+          Javi Mi Se <span>↗</span>
+        </a>
+      </div>
+
+      <!-- Desno: Tvoji preuređeni Socials (Također zauzimaju 6 kolona na desnoj strani) -->
+      <div
+        class="md:col-span-6 md:justify-self-end w-full max-w-xs space-y-6 reveal"
+        style="transition-delay: 150ms"
+      >
+        <div>
+          <span
+            class="text-xs font-mono text-gray-500 uppercase tracking-wider block mb-4 md:text-right"
+            >Povežimo se</span
+          >
+
+          <!-- Čista, vertikalna lista sa prelijepim hover efektom -->
+          <div
+            class="flex flex-col border-t border-slate-800 divide-y divide-slate-800 font-mono text-xs text-gray-400"
+          >
+            <a
+              href="https://github.com/Saban2412"
+              target="_blank"
+              rel="noreferrer"
+              class="flex items-center justify-between py-3.5 hover:text-accentPurp transition-all hover:pl-1"
+            >
+              <span>GitHub</span>
+              <span class="text-gray-600 text-[10px]">moj rad ↗</span>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/emir-sabanovic/"
+              target="_blank"
+              rel="noreferrer"
+              class="flex items-center justify-between py-3.5 hover:text-accentPurp transition-all hover:pl-1"
+            >
+              <span>LinkedIn</span>
+              <span class="text-gray-600 text-[10px]">povezivanje ↗</span>
+            </a>
+            <a
+              href="https://mail.google.com/mail/?view=cm&fs=1&to=emir.sabanovic.23@size.ba"
+              target="_blank"
+              rel="noreferrer"
+              class="flex items-center justify-between py-3.5 hover:text-accentPurp transition-all hover:pl-1"
+            >
+              <span>Email</span>
+              <span class="text-gray-600 text-[10px]">pošalji poruku ↗</span>
+            </a>
+            <a
+              href="https://www.instagram.com/e.sabanovic03"
+              target="_blank"
+              rel="noreferrer"
+              class="flex items-center justify-between py-3.5 hover:text-accentPurp transition-all hover:pl-1"
+            >
+              <span>Instagram</span>
+              <span class="text-gray-600 text-[10px]">zaprati ↗</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GLAVNI MODAL KONTEJNER -->
+    <div
+      id="project-modal"
+      class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm opacity-0 transition-opacity duration-300"
+    >
+      <!-- Prozor Modala -->
+      <div
+        class="modal-panel bg-[#0b1120]/95 border border-slate-800/90 w-full max-w-5xl h-[85vh] max-h-[650px] rounded-2xl shadow-2xl flex flex-col md:flex-row overflow-hidden relative"
+      >
+        <!-- Dugme za zatvaranje (Gore desno) -->
+        <button
+          onclick="closeModal()"
+          class="absolute top-4 right-4 z-10 opacity-70 hover:opacity-100 transition-all hover:rotate-90 duration-300"
+        >
+          <img src="images/izlaz.png" alt="Zatvori" class="w-6 h-6" />
+        </button>
+
+        <!-- LIJEVA STRANA: DETALJI I INTERNI TABOVI -->
+        <div
+          class="w-full md:w-1/2 p-8 flex flex-col justify-between border-b md:border-b-0 md:border-r border-slate-800/60"
+        >
+          <!-- Gornji fiksni dio -->
+          <div>
+            <span
+              id="modal-tech"
+              class="text-[10px] font-mono text-blue-400 tracking-wider uppercase"
+              >TECH STACK</span
+            >
+            <h3 id="modal-title" class="text-xl font-bold mt-1 mb-6 text-white">
+              Project Title
+            </h3>
+
+            <!-- Interni Tabovi (Description / Development) -->
+            <div
+              class="flex gap-6 border-b border-slate-800/60 font-mono text-xs mb-4"
+            >
+              <button
+                id="modal-tab-desc"
+                onclick="switchModalTab('desc')"
+                class="pb-2 font-medium border-b-2 border-blue-500 text-white -mb-[1px] transition-all"
+              >
+                Description
+              </button>
+              <button
+                id="modal-tab-dev"
+                onclick="switchModalTab('dev')"
+                class="pb-2 font-medium border-b-2 border-transparent text-gray-500 hover:text-gray-300 -mb-[1px] transition-all"
+              >
+                Development
+              </button>
+            </div>
+
+            <!-- Skrolujući tekstualni sadržaj -->
+            <div
+              class="overflow-y-auto pr-2 max-h-[320px] text-xs text-gray-400 leading-relaxed space-y-4 font-sans scrollbar-thin"
+            >
+              <!-- Sadržaj za Description -->
+              <div id="modal-content-desc" class="block">
+                <p id="modal-desc-text">
+                  Glavni opis projekta će se učitavati ovdje...
+                </p>
+              </div>
+
+              <!-- Sadržaj za Development -->
+              <div id="modal-content-dev" class="hidden">
+                <p id="modal-dev-text">
+                  Tehnički detalji, izazovi i arhitektura će se učitavati
+                  ovdje...
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- DESNA STRANA: SLIDER I GITHUB DUGME -->
+        <div
+          class="w-full md:w-1/2 p-8 flex flex-col justify-between bg-slate-950/20"
+        >
+          <!-- Image Slider Kontejner -->
+          <div
+            class="relative w-full aspect-[16/10] bg-slate-950/60 border border-slate-900 rounded-xl overflow-hidden group flex items-center justify-center"
+          >
+            <img
+              id="modal-slider-img"
+              src=""
+              alt="Project screenshot"
+              class="w-full h-full object-cover transition-all duration-300"
+            />
+
+            <!-- Kontrole za Slider (Prethodna / Sljedeća) -->
+            <button
+              onclick="prevSlide()"
+              data-slide="prev"
+              class="slider-nav absolute left-3 p-1.5 rounded-md bg-slate-900/80 border border-slate-800 text-gray-400 hover:text-white text-xs font-mono transition-all"
+            >
+              ←
+            </button>
+            <button
+              onclick="nextSlide()"
+              data-slide="next"
+              class="slider-nav absolute right-3 p-1.5 rounded-md bg-slate-900/80 border border-slate-800 text-gray-400 hover:text-white text-xs font-mono transition-all"
+            >
+              →
+            </button>
+          </div>
+
+          <!-- DEMO dugme (placeholder — link dodaje Emir naknadno) -->
+          <a
+            id="modal-demo-link"
+            href="#"
+            class="w-full text-center py-3 rounded-lg font-mono text-xs font-semibold text-gray-400 bg-transparent border border-gray-700 hover:border-gray-500 hover:text-white transition-all duration-300 mt-6 md:mt-0"
+          >
+            DEMO <span class="text-[10px]">↗</span>
+          </a>
+
+          <!-- Istaknuto dugme za GitHub (Kao View My Work u Hero sekciji) -->
+          <a
+            id="modal-github-link"
+            href="#"
+            target="_blank"
+            class="btn-shine w-full text-center py-3 rounded-lg font-mono text-xs font-semibold text-white bg-blue-600 hover:bg-blue-500 border border-blue-500 shadow-[0_0_15px_rgba(37,99,235,0.2)] hover:shadow-[0_0_25px_rgba(37,99,235,0.4)] transition-all duration-300 mt-3"
+          >
+            VIEW REPOSITORY <span class="text-[10px]">↗</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODAL ZA SERTIFIKATE -->
+    <div
+      id="cert-modal"
+      class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm opacity-0 transition-opacity duration-300"
+    >
+      <div
+        class="modal-panel bg-[#0b1120]/95 border border-slate-800/90 w-full max-w-5xl h-[85vh] max-h-[650px] rounded-2xl shadow-2xl flex flex-col md:flex-row overflow-hidden relative"
+      >
+        <!-- Dugme za zatvaranje (Gore desno) -->
+        <button
+          onclick="closeCertModal()"
+          class="absolute top-4 right-4 z-10 opacity-70 hover:opacity-100 transition-all hover:rotate-90 duration-300"
+        >
+          <img src="images/izlaz.png" alt="Zatvori" class="w-6 h-6" />
+        </button>
+
+        <!-- LIJEVA STRANA: NAZIV + TAB SA DETALJIMA -->
+        <div
+          class="w-full md:w-1/2 p-8 flex flex-col justify-between border-b md:border-b-0 md:border-r border-slate-800/60"
+        >
+          <div>
+            <span
+              id="cert-modal-category"
+              class="text-[10px] font-mono text-emerald-400 tracking-wider uppercase"
+              >CATEGORY</span
+            >
+            <h3
+              id="cert-modal-title"
+              class="text-xl font-bold mt-1 mb-6 text-white"
+            >
+              Certificate Title
+            </h3>
+
+            <!-- Jedan tab: Datum / Firma / Opis -->
+            <div
+              class="flex gap-6 border-b border-slate-800/60 font-mono text-xs mb-4"
+            >
+              <span
+                class="pb-2 font-medium border-b-2 border-emerald-500 text-white -mb-[1px]"
+              >
+                Details
+              </span>
+            </div>
+
+            <div
+              class="overflow-y-auto pr-2 max-h-[320px] text-xs text-gray-400 leading-relaxed space-y-4 font-sans scrollbar-thin"
+            >
+              <div class="flex items-center gap-2">
+                <span
+                  class="text-gray-500 uppercase tracking-wide w-20 shrink-0"
+                  >Issued</span
+                >
+                <span id="cert-modal-date" class="text-gray-300">—</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span
+                  class="text-gray-500 uppercase tracking-wide w-20 shrink-0"
+                  >Issuer</span
+                >
+                <span id="cert-modal-issuer" class="text-gray-300">—</span>
+              </div>
+              <p id="cert-modal-desc" class="pt-2">
+                Opis sertifikata će se učitavati ovdje...
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- DESNA STRANA: SLIKA SERTIFIKATA + DUGME NA LINK -->
+        <div
+          class="w-full md:w-1/2 p-8 flex flex-col justify-between bg-slate-950/20"
+        >
+          <div
+            class="relative w-full aspect-[16/10] bg-slate-950/60 border border-slate-900 rounded-xl overflow-hidden flex items-center justify-center p-6"
+          >
+            <img
+              id="cert-modal-img"
+              src=""
+              alt="Certificate"
+              class="max-w-full max-h-full object-contain transition-all duration-300"
+            />
+          </div>
+
+          <a
+            id="cert-modal-link"
+            href="#"
+            target="_blank"
+            class="btn-shine w-full text-center py-3 rounded-lg font-mono text-xs font-semibold text-white bg-emerald-600 hover:bg-emerald-500 border border-emerald-500 shadow-[0_0_15px_rgba(16,185,129,0.2)] hover:shadow-[0_0_25px_rgba(16,185,129,0.4)] transition-all duration-300 mt-6 md:mt-0"
+          >
+            VIEW CERTIFICATE <span class="text-[10px]">↗</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>
