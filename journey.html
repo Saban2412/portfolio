@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Journey — Emir Šabanović</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Alex+Brush&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              darkBg: "#060813",
+              cardBg: "#0b1120",
+              accentPurp: "#6366f1",
+              accentBlue: "#2563eb",
+            },
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+              mono: ["Fira Code", "monospace"],
+            },
+          },
+        },
+      };
+    </script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Code&family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body class="min-h-screen bg-darkBg text-white font-sans antialiased">
+    <header
+      id="site-header"
+      class="w-full max-w-6xl mx-auto px-6 h-20 flex items-center justify-between sticky top-0 bg-darkBg/80 backdrop-blur-md z-50 transition-shadow duration-300"
+    >
+      <a
+        href="index.html"
+        class="flex items-center gap-2 text-2xl tracking-tight"
+      >
+        <span
+          style="font-family: &quot;Alex Brush&quot;, cursive"
+          class="font-medium text-gray-200"
+          >Šabanović</span
+        >
+      </a>
+      <nav class="hidden md:flex items-center gap-8 text-sm text-gray-400">
+        <a
+          href="index.html#home"
+          class="nav-link hover:text-white transition-colors pb-1"
+          >Home</a
+        >
+        <a
+          href="index.html#about"
+          class="nav-link hover:text-white transition-colors pb-1"
+          >About</a
+        >
+        <a
+          href="journey.html"
+          class="nav-link text-white border-b-2 border-accentPurp pb-1"
+          >Journey</a
+        >
+        <a
+          href="index.html#projects-section"
+          class="nav-link hover:text-white transition-colors pb-1"
+          >Projects</a
+        >
+        <a
+          href="index.html#contact"
+          class="nav-link hover:text-white transition-colors pb-1"
+          >Contact</a
+        >
+        <a
+          href="downloads/Emir_Sabanovic_Resume.pdf"
+          download
+          class="btn-shine cv-pulse bg-red-600 hover:bg-red-500 text-white px-4 py-2 rounded-md text-xs font-semibold"
+          >Download CV <span class="text-xs">↓</span></a
+        >
+      </nav>
+      <div class="flex items-center gap-5">
+        <div class="flex items-center gap-2.5">
+          <a href="journey.html" class="hover:opacity-80 transition-opacity"
+            ><img
+              src="images/icons8-uk-48.png"
+              alt="English"
+              class="w-5 h-auto object-contain"
+          /></a>
+          <a href="journey_b.html" class="hover:opacity-80 transition-opacity"
+            ><img
+              src="images/icons8-bosnia-and-herzegovina-48.png"
+              alt="Bosanski"
+              class="w-5 h-auto object-contain"
+          /></a>
+        </div>
+        <a
+          href="https://mail.google.com/mail/?view=cm&fs=1&to=emir.sabanovic.23@size.ba"
+          target="_blank"
+          rel="noreferrer"
+          class="btn-shine bg-accentPurp hover:bg-indigo-600 px-5 py-2.5 text-xs font-semibold rounded-md transition-all"
+          >Hire Me <span class="text-sm">↗</span></a
+        >
+        <button
+          type="button"
+          id="menu-toggle"
+          class="md:hidden p-2 text-gray-300 hover:text-white"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+          onclick="toggleMobileMenu()"
+        >
+          <span class="sr-only">Menu</span>
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            aria-hidden="true"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
+          </svg>
+        </button>
+      </div>
+    </header>
+    <nav
+      id="mobile-menu"
+      class="hidden md:hidden border-b border-slate-800 bg-darkBg/95 px-6 py-3 text-sm text-gray-300 sticky top-20 z-40"
+    >
+      <a href="index.html#home" class="block py-2.5">Home</a>
+      <a href="index.html#about" class="block py-2.5">About</a>
+      <a href="journey.html" class="block py-2.5 text-white">Journey</a>
+      <a href="index.html#projects-section" class="block py-2.5">Projects</a>
+      <a href="index.html#contact" class="block py-2.5">Contact</a>
+      <a
+        href="downloads/Emir_Sabanovic_Resume.pdf"
+        download
+        class="block py-2.5 text-red-400"
+        >Download CV</a
+      >
+    </nav>
+    <script src="js/main.js"></script>
+  </body>
+</html>
