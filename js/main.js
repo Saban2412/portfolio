@@ -38,7 +38,6 @@
           cache: "no-store",
           headers: {
             Accept: "application/vnd.github+json",
-            "Cache-Control": "no-cache",
           },
         },
       );
