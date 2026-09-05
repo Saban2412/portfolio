@@ -6,6 +6,55 @@ body.modal-open {
   overflow: hidden;
 }
 
+.github-activity-image {
+  max-height: 320px;
+  object-fit: contain;
+}
+
+.github-commit-item + .github-commit-item {
+  border-top: 1px solid rgba(30, 41, 59, 0.8);
+}
+
+.github-commit-link {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.75rem 0;
+  color: #d1d5db;
+  transition: color 0.2s ease;
+}
+
+.github-commit-link:hover {
+  color: #a5b4fc;
+}
+
+.github-commit-message {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.github-commit-date {
+  flex: 0 0 auto;
+  color: #6b7280;
+  font-family: "Fira Code", monospace;
+  font-size: 0.7rem;
+}
+
+@media (max-width: 767px) {
+  .github-commit-link {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .github-commit-message {
+    white-space: normal;
+  }
+}
+
 @media (max-width: 767px) {
   #project-modal .modal-panel,
   #cert-modal .modal-panel {

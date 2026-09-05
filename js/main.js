@@ -12,6 +12,104 @@
     return document.getElementById(id);
   }
 
+  function formatGithubDate(value) {
+    if (!value) return "";
+    return new Intl.DateTimeFormat(lang === "bs" ? "bs-BA" : "en-US", {
+      dateStyle: "medium",
+    }).format(new Date(value));
+  }
+
+  async function loadGithubActivity() {
+    const section = $("github-activity");
+    if (!section) return;
+
+    const status = $("github-activity-status");
+    const content = $("github-activity-content");
+    const error = $("github-activity-error");
+    const username = "Saban2412";
+    const apiBase = "https://api.github.com";
+
+    try {
+      const eventsResponse = await fetch(
+        `${apiBase}/users/${username}/events/public?per_page=100`,
+        { headers: { Accept: "application/vnd.github+json" } },
+      );
+      if (!eventsResponse.ok) throw new Error("events-request-failed");
+
+      const events = await eventsResponse.json();
+      const pushEvent = events.find(
+        (event) =>
+          event.type === "PushEvent" &&
+          event.actor?.login?.toLowerCase() === username.toLowerCase() &&
+          event.repo?.name,
+      );
+      if (!pushEvent) throw new Error("no-public-push");
+
+      const repoResponse = await fetch(
+        `${apiBase}/repos/${pushEvent.repo.name}`,
+        { headers: { Accept: "application/vnd.github+json" } },
+      );
+      if (!repoResponse.ok) throw new Error("repo-request-failed");
+      const repo = await repoResponse.json();
+
+      const commitsResponse = await fetch(
+        `${apiBase}/repos/${pushEvent.repo.name}/commits?per_page=5`,
+        { headers: { Accept: "application/vnd.github+json" } },
+      );
+      if (!commitsResponse.ok) throw new Error("commits-request-failed");
+      const commits = await commitsResponse.json();
+      if (!Array.isArray(commits) || !commits.length) {
+        throw new Error("no-commits");
+      }
+
+      $("github-activity-repo").textContent = repo.full_name || repo.name;
+      $("github-activity-language").textContent =
+        repo.language || (lang === "bs" ? "Nije navedeno" : "Not specified");
+      $("github-activity-repo-link").href = repo.html_url;
+      $("github-activity-repo-link").setAttribute(
+        "aria-label",
+        `${repo.full_name || repo.name} ${lang === "bs" ? "na GitHubu" : "on GitHub"}`,
+      );
+
+      const commitList = $("github-activity-commits");
+      commitList.replaceChildren();
+      commits.slice(0, 5).forEach((commit) => {
+        const item = document.createElement("li");
+        item.className = "github-commit-item";
+
+        const link = document.createElement("a");
+        link.href = commit.html_url;
+        link.target = "_blank";
+        link.rel = "noopener noreferrer";
+        link.className = "github-commit-link";
+
+        const message = document.createElement("span");
+        message.className = "github-commit-message";
+        message.textContent =
+          commit.commit?.message?.split("\n")[0] ||
+          (lang === "bs" ? "Bez poruke commita" : "Commit without a message");
+
+        const date = document.createElement("time");
+        date.className = "github-commit-date";
+        date.dateTime = commit.commit?.author?.date || "";
+        date.textContent = formatGithubDate(commit.commit?.author?.date);
+
+        link.append(message, date);
+        item.append(link);
+        commitList.append(item);
+      });
+
+      status.classList.add("hidden");
+      error.classList.add("hidden");
+      content.classList.remove("hidden");
+    } catch (requestError) {
+      console.error("Unable to load GitHub activity", requestError);
+      status.classList.add("hidden");
+      content.classList.add("hidden");
+      error.classList.remove("hidden");
+    }
+  }
+
   function setOpen(modal, open) {
     if (!modal) return;
     if (open) {
@@ -401,6 +499,8 @@
       }
     });
   });
+
+  loadGithubActivity();
 
   [
     ["project-modal", "modal-title"],
