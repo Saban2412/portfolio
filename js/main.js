@@ -395,6 +395,19 @@
     if (btn) btn.setAttribute("aria-expanded", open ? "true" : "false");
   };
 
+  window.toggleProfilePhoto = function (shouldOpen) {
+    const modal = $("profile-photo-modal");
+    if (!modal) return;
+    const open =
+      shouldOpen === undefined
+        ? modal.classList.contains("hidden")
+        : shouldOpen;
+    modal.classList.toggle("hidden", !open);
+    modal.classList.toggle("flex", open);
+    modal.setAttribute("aria-hidden", open ? "false" : "true");
+    document.body.classList.toggle("modal-open", open);
+  };
+
   function closeMobileMenu() {
     const menu = $("mobile-menu");
     const btn = $("menu-toggle");
@@ -411,6 +424,12 @@
     }
     if (certModal && !certModal.classList.contains("hidden")) {
       window.closeCertModal();
+    }
+    if (
+      $("profile-photo-modal") &&
+      !$("profile-photo-modal").classList.contains("hidden")
+    ) {
+      window.toggleProfilePhoto(false);
     }
     closeMobileMenu();
   });

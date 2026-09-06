@@ -294,10 +294,18 @@ body.modal-open {
 }
 
 .roadmap-heading {
+  position: relative;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 5rem;
   margin-bottom: 1.5rem;
+}
+.roadmap-project-heading {
+  position: absolute;
+  left: 50%;
+  bottom: -1.5rem;
+  transform: translateX(-50%);
+  color: #4ade80;
 }
 .roadmap-track {
   position: relative;
@@ -427,7 +435,19 @@ body.modal-open {
 
 @media (max-width: 767px) {
   .roadmap-heading {
-    gap: 1rem;
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .roadmap-heading > div {
+    text-align: left;
+  }
+  .roadmap-heading > div h2 {
+    display: none;
+  }
+  .roadmap-project-heading {
+    position: static;
+    transform: none;
   }
   .roadmap-row {
     grid-template-columns: 1rem minmax(0, 1fr);
