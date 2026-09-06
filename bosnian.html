@@ -340,106 +340,215 @@
         class="block opacity-100 transition-opacity duration-300"
       >
         <!-- Grid sa tačno 3 kolone na desktopu -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12 reveal-stagger">
-          <!-- KARTICA 1 -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12 reveal-stagger">
           <div
-            class="tilt-card bg-cardBg/40 border border-slate-800/60 rounded-xl p-5 flex flex-col justify-between hover:border-slate-700/80 transition-all group"
+            data-project="project-3"
+            role="group"
+            tabindex="0"
+            class="project-card text-left w-full group bg-slate-900/20 border border-slate-900 rounded-xl overflow-hidden hover:border-slate-800 hover:bg-slate-900/30 transition-all flex flex-col justify-between cursor-pointer focus:outline-none focus:ring-2 focus:ring-indigo-500/40"
+            data-tags="node zod"
           >
-            <div>
-              <!-- Prostor za 3D sliku (Kompaktna visina, savršena za tech ilustracije) -->
-              <!-- Prostor za mockup sliku - SADA POKRIVA CIJELI PROSTOR -->
-              <div
-                class="w-full aspect-[16/10] bg-slate-950/40 rounded-lg border border-slate-900 overflow-hidden mb-4 flex items-center justify-center group-hover:border-blue-900/50 transition-all duration-300"
-              >
-                <img
-                  src="images/mockup-taskapi.png"
-                  alt="Project Mockup"
-                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                />
+            <div class="p-6 w-full">
+              <div class="flex items-center justify-between mb-3">
+                <span class="text-xs text-gray-500 font-mono"
+                  >NODE.JS / SUPABASE / POSTGRESQL</span
+                >
+                <span class="text-[11px] font-mono text-gray-600">2026</span>
               </div>
-
-              <span class="text-[10px] font-mono text-accentPurp"
-                >NODE.JS / POSTGRESQL / DOCKER</span
+              <h3
+                class="text-xl font-bold text-gray-100 group-hover:text-indigo-400 transition-colors mb-2"
               >
-              <h3 class="text-lg font-bold mt-1 mb-2">CRUD API</h3>
-              <p class="text-xs text-gray-400 leading-relaxed mb-6">
-                RESTful API izgrađen uz stabilno modeliranje podataka i
-                relacioni integritet.
-              </p>
-            </div>
-            <button
-              onclick="openModal('project-1')"
-              class="w-full text-xs font-semibold text-white bg-slate-800/80 hover:bg-slate-800 py-2.5 rounded-md transition-all"
-            >
-              Vidi detalje
-            </button>
-          </div>
-
-          <!-- Ovdje idu Kartica 2 i Kartica 3 sa istom strukturom -->
-          <div
-            class="tilt-card bg-cardBg/40 border border-slate-800/60 rounded-xl p-5 flex flex-col justify-between hover:border-slate-700/80 transition-all group"
-          >
-            <div>
-              <!-- Prostor za 3D sliku (Kompaktna visina, savršena za tech ilustracije) -->
-              <!-- Prostor za mockup sliku - SADA POKRIVA CIJELI PROSTOR -->
-              <div
-                class="w-full aspect-[16/10] bg-slate-950/40 rounded-lg border border-slate-900 overflow-hidden mb-4 flex items-center justify-center group-hover:border-blue-900/50 transition-all duration-300"
-              >
-                <img
-                  src="images/scraper.png"
-                  alt="Project Mockup"
-                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-              </div>
-
-              <span class="text-[10px] font-mono text-accentPurp"
-                >NODE.JS / ZOD</span
-              >
-              <h3 class="text-lg font-bold mt-1 mb-2">Polite Scraper</h3>
-              <p class="text-xs text-gray-400 leading-relaxed mb-6">
-                Visoko efikasan alat za web scraping, projektovan sa strogim
-                ograničenjem brzine (rate-limiting) i stabilnim rutinama za
-                validaciju podataka.
-              </p>
-            </div>
-            <button
-              onclick="openModal('project-2')"
-              class="w-full text-xs font-semibold text-white bg-slate-800/80 hover:bg-slate-800 py-2.5 rounded-md transition-all"
-            >
-              Vidi detalje
-            </button>
-          </div>
-          <div
-            class="tilt-card bg-cardBg/40 border border-slate-800/60 rounded-xl p-5 flex flex-col justify-between hover:border-slate-700/80 transition-all group"
-          >
-            <div>
-              <!-- Prostor za 3D sliku (Kompaktna visina, savršena za tech ilustracije) -->
-              <!-- Prostor za mockup sliku - SADA POKRIVA CIJELI PROSTOR -->
-              <div
-                class="w-full aspect-[16/10] bg-slate-950/40 rounded-lg border border-slate-900 overflow-hidden mb-4 flex items-center justify-center group-hover:border-blue-900/50 transition-all duration-300"
-              >
-                <img
-                  src="images/Screenshot 2026-08-29 084623.png"
-                  alt="Project Mockup"
-                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-              </div>
-
-              <span class="text-[10px] font-mono text-accentPurp"
-                >NODE.JS / SUPABASE</span
-              >
-              <h3 class="text-lg font-bold mt-1 mb-2">AUTH Sistem</h3>
-              <p class="text-xs text-gray-400 leading-relaxed mb-6">
+                AUTH Sistem
+              </h3>
+              <p class="text-gray-400 text-sm leading-relaxed">
                 Siguran autentifikacijski i autorizacijski gateway spreman za
                 produkciju, integrisan sa modernim headless backendom.
               </p>
             </div>
-            <button
-              onclick="openModal('project-3')"
-              class="w-full text-xs font-semibold text-white bg-slate-800/80 hover:bg-slate-800 py-2.5 rounded-md transition-all"
+            <div
+              class="px-6 pb-6 pt-4 border-t border-slate-900/40 mt-auto flex items-center justify-between w-full"
             >
-              Vidi detalje
-            </button>
+              <div class="flex items-center">
+                <img
+                  src="images/icons8-nodejs-48.png"
+                  alt="Tech Stack"
+                  class="h-5 w-auto object-contain pointer-events-none opacity-80 group-hover:opacity-100 transition-opacity mr-4"
+                />
+                <img
+                  src="images/icons8-express-js-48.png"
+                  alt="Tech Stack"
+                  class="h-5 w-auto object-contain pointer-events-none opacity-80 group-hover:opacity-100 transition-opacity mr-4"
+                />
+                <img
+                  src="images/icons8-supabase-48.png"
+                  alt="Tech Stack"
+                  class="h-5 w-auto object-contain pointer-events-none opacity-80 group-hover:opacity-100 transition-opacity mr-4"
+                />
+                <img
+                  src="images/icons8-postgresql-48.png"
+                  alt="Tech Stack"
+                  class="h-5 w-auto object-contain pointer-events-none opacity-80 group-hover:opacity-100 transition-opacity mr-4"
+                />
+              </div>
+              <a
+                href="https://github.com/Saban2412"
+                target="_blank"
+                rel="noreferrer"
+                onclick="event.stopPropagation()"
+                class="p-2 text-gray-400 hover:text-white bg-slate-950/40 hover:bg-slate-950 rounded-md border border-slate-900 hover:border-slate-800 transition-all relative z-10"
+                title="GitHub Kod"
+              >
+                <svg
+                  class="w-3.5 h-3.5"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.462-1.11-1.462-.908-.62.069-.061.069-.061 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.579.688.481C19.137 20.162 22 16.418 22 12c0-5.523-4.477-10-10-10z"
+                  ></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <div
+            data-project="project-2"
+            role="group"
+            tabindex="0"
+            class="project-card text-left w-full group bg-slate-900/20 border border-slate-900 rounded-xl overflow-hidden hover:border-slate-800 hover:bg-slate-900/30 transition-all flex flex-col justify-between cursor-pointer focus:outline-none focus:ring-2 focus:ring-indigo-500/40"
+            data-tags="node zod"
+          >
+            <div class="p-6 w-full">
+              <div class="flex items-center justify-between mb-3">
+                <span class="text-xs text-gray-500 font-mono"
+                  >NODE.JS / ZOD</span
+                >
+                <span class="text-[11px] font-mono text-gray-600">2026</span>
+              </div>
+              <h3
+                class="text-xl font-bold text-gray-100 group-hover:text-indigo-400 transition-colors mb-2"
+              >
+                Polite Scraper
+              </h3>
+              <p class="text-gray-400 text-sm leading-relaxed">
+                Visoko efikasan alat za web scraping, projektovan sa strogim
+                ograničenjem brzine i stabilnim rutinama za validaciju podataka.
+              </p>
+            </div>
+            <div
+              class="px-6 pb-6 pt-4 border-t border-slate-900/40 mt-auto flex items-center justify-between w-full"
+            >
+              <div class="flex items-center">
+                <img
+                  src="images/icons8-nodejs-48.png"
+                  alt="Tech Stack"
+                  class="h-5 w-auto object-contain pointer-events-none opacity-80 group-hover:opacity-100 transition-opacity mr-4"
+                />
+                <img
+                  src="images/icons8-express-js-48.png"
+                  alt="Tech Stack"
+                  class="h-5 w-auto object-contain pointer-events-none opacity-80 group-hover:opacity-100 transition-opacity mr-4"
+                />
+              </div>
+              <a
+                href="https://github.com/Saban2412"
+                target="_blank"
+                rel="noreferrer"
+                onclick="event.stopPropagation()"
+                class="p-2 text-gray-400 hover:text-white bg-slate-950/40 hover:bg-slate-950 rounded-md border border-slate-900 hover:border-slate-800 transition-all relative z-10"
+                title="GitHub Kod"
+              >
+                <svg
+                  class="w-3.5 h-3.5"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.462-1.11-1.462-.908-.62.069-.061.069-.061 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.579.688.481C19.137 20.162 22 16.418 22 12c0-5.523-4.477-10-10-10z"
+                  ></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <div
+            data-project="project-1"
+            role="group"
+            tabindex="0"
+            class="project-card text-left w-full group bg-slate-900/20 border border-slate-900 rounded-xl overflow-hidden hover:border-slate-800 hover:bg-slate-900/30 transition-all flex flex-col justify-between cursor-pointer focus:outline-none focus:ring-2 focus:ring-indigo-500/40"
+            data-tags="node zod"
+          >
+            <div class="p-6 w-full">
+              <div class="flex items-center justify-between mb-3">
+                <span class="text-xs text-gray-500 font-mono"
+                  >NODE.JS / POSTGRESQL / DOCKER</span
+                >
+                <span class="text-[11px] font-mono text-gray-600">2026</span>
+              </div>
+              <h3
+                class="text-xl font-bold text-gray-100 group-hover:text-indigo-400 transition-colors mb-2"
+              >
+                CRUD API
+              </h3>
+              <p class="text-gray-400 text-sm leading-relaxed">
+                RESTful API izgrađen uz stabilno modeliranje podataka i
+                relacioni integritet. Kontejneriziran za dosljedna okruženja u
+                razvoju i produkciji.
+              </p>
+            </div>
+            <div
+              class="px-6 pb-6 pt-4 border-t border-slate-900/40 mt-auto flex items-center justify-between w-full"
+            >
+              <div class="flex items-center">
+                <img
+                  src="images/icons8-nodejs-48.png"
+                  alt="Tech Stack"
+                  class="h-5 w-auto object-contain pointer-events-none opacity-80 group-hover:opacity-100 transition-opacity mr-4"
+                />
+                <img
+                  src="images/icons8-express-js-48.png"
+                  alt="Tech Stack"
+                  class="h-5 w-auto object-contain pointer-events-none opacity-80 group-hover:opacity-100 transition-opacity mr-4"
+                />
+                <img
+                  src="images/icons8-postgresql-48.png"
+                  alt="Tech Stack"
+                  class="h-5 w-auto object-contain pointer-events-none opacity-80 group-hover:opacity-100 transition-opacity mr-4"
+                />
+                <img
+                  src="images/icons8-docker-48.png"
+                  alt="Tech Stack"
+                  class="h-5 w-auto object-contain pointer-events-none opacity-80 group-hover:opacity-100 transition-opacity mr-4"
+                />
+              </div>
+              <a
+                href="https://github.com/Saban2412"
+                target="_blank"
+                rel="noreferrer"
+                onclick="event.stopPropagation()"
+                class="p-2 text-gray-400 hover:text-white bg-slate-950/40 hover:bg-slate-950 rounded-md border border-slate-900 hover:border-slate-800 transition-all relative z-10"
+                title="GitHub Kod"
+              >
+                <svg
+                  class="w-3.5 h-3.5"
+                  fill="currentColor"
+                  viewBox="0 0 24 24"
+                  aria-hidden="true"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    clip-rule="evenodd"
+                    d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.462-1.11-1.462-.908-.62.069-.061.069-.061 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.579.688.481C19.137 20.162 22 16.418 22 12c0-5.523-4.477-10-10-10z"
+                  ></path>
+                </svg>
+              </a>
+            </div>
           </div>
         </div>
 
