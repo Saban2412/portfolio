@@ -186,7 +186,10 @@
       if (!button || !content) return;
 
       if (item === tabName) {
+        content.hidden = false;
         content.classList.remove("hidden");
+        content.classList.add("block");
+        content.style.display = "block";
         setTimeout(() => content.classList.add("opacity-100"), 10);
         content.classList.remove("opacity-0");
         button.classList.add("text-white", "border-blue-500");
@@ -201,8 +204,10 @@
           requestAnimationFrame(() => el.classList.add("is-visible"));
         });
       } else {
+        content.hidden = true;
         content.classList.add("hidden", "opacity-0");
-        content.classList.remove("opacity-100");
+        content.classList.remove("block", "opacity-100");
+        content.style.display = "none";
         button.classList.remove("text-white", "border-blue-500");
         button.classList.add(
           "text-gray-500",
