@@ -12,6 +12,37 @@
     return document.getElementById(id);
   }
 
+  function updateThemeToggle() {
+    const button = $("theme-toggle");
+    if (!button) return;
+    const light = document.documentElement.dataset.theme === "light";
+    const nextLabel =
+      lang === "bs"
+        ? light
+          ? "Prebaci na tamni način"
+          : "Prebaci na svijetli način"
+        : light
+          ? "Switch to dark mode"
+          : "Switch to light mode";
+    button.setAttribute("aria-label", nextLabel);
+    button.title = nextLabel;
+    button.classList.toggle("is-light", light);
+  }
+
+  window.toggleTheme = function () {
+    const light = document.documentElement.dataset.theme !== "light";
+    if (light) {
+      document.documentElement.dataset.theme = "light";
+      localStorage.setItem("portfolio-theme", "light");
+    } else {
+      delete document.documentElement.dataset.theme;
+      localStorage.setItem("portfolio-theme", "dark");
+    }
+    updateThemeToggle();
+  };
+
+  updateThemeToggle();
+
   function formatGithubDate(value) {
     if (!value) return "";
     return new Intl.DateTimeFormat(lang === "bs" ? "bs-BA" : "en-US", {

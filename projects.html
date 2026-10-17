@@ -12,6 +12,12 @@
     <!-- Tailwind CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
+      (function () {
+        const theme = localStorage.getItem("portfolio-theme");
+        if (theme === "light") document.documentElement.dataset.theme = "light";
+      })();
+    </script>
+    <script>
       tailwind.config = {
         theme: {
           extend: {
@@ -93,6 +99,22 @@
 
       <!-- DESNI DIO: Zastavice i Hire Me dugme grupisani zajedno -->
       <div class="flex items-center gap-6">
+        <button
+          type="button"
+          id="theme-toggle"
+          class="theme-toggle"
+          onclick="toggleTheme()"
+          aria-label="Switch to light mode"
+          title="Switch to light mode"
+        >
+          <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+            <circle cx="12" cy="12" r="4" />
+            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
+          </svg>
+          <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z" />
+          </svg>
+        </button>
         <div class="flex items-center gap-2.5">
           <a href="projects.html" class="hover:opacity-80 transition-opacity">
             <img
@@ -308,6 +330,10 @@
         >
           Swagger
         </button>
+        <button data-filter="express" class="filter-chip px-4 py-2 rounded-full border border-slate-800 text-xs font-mono text-gray-400 hover:border-slate-600 hover:text-white">Express</button>
+        <button data-filter="openrouter" class="filter-chip px-4 py-2 rounded-full border border-slate-800 text-xs font-mono text-gray-400 hover:border-slate-600 hover:text-white">OpenRouter</button>
+        <button data-filter="inngest" class="filter-chip px-4 py-2 rounded-full border border-slate-800 text-xs font-mono text-gray-400 hover:border-slate-600 hover:text-white">Inngest</button>
+        <button data-filter="sqlite" class="filter-chip px-4 py-2 rounded-full border border-slate-800 text-xs font-mono text-gray-400 hover:border-slate-600 hover:text-white">SQLite</button>
       </div>
     </section>
 
@@ -377,7 +403,7 @@
             <!-- DESNO: GitHub dugme -->
             <div class="flex items-center">
               <a
-                href="https://github.com/Saban2412"
+                href="https://github.com/Saban2412/AUTH-CRUD-API"
                 target="_blank"
                 rel="noreferrer"
                 onclick="event.stopPropagation()"
@@ -458,7 +484,7 @@
 
             <div class="flex items-center">
               <a
-                href="https://github.com/Saban2412"
+                href="https://github.com/Saban2412/POSTGRES-CRUD-API"
                 target="_blank"
                 rel="noreferrer"
                 onclick="event.stopPropagation()"
@@ -527,7 +553,7 @@
 
             <div class="flex items-center">
               <a
-                href="https://github.com/Saban2412"
+                href="https://github.com/Saban2412/scraper"
                 target="_blank"
                 rel="noreferrer"
                 onclick="event.stopPropagation()"
@@ -547,6 +573,81 @@
                 </svg>
               </a>
             </div>
+          </div>
+        </div>
+
+        <div
+          data-project="project-4"
+          role="group"
+          tabindex="0"
+          class="project-card text-left w-full group bg-slate-900/20 border border-slate-900 rounded-xl overflow-hidden hover:border-slate-800 hover:bg-slate-900/30 transition-all flex flex-col justify-between cursor-pointer focus:outline-none focus:ring-2 focus:ring-indigo-500/40"
+          data-tags="node express zod openrouter"
+        >
+          <div class="p-6 w-full">
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs text-gray-500 font-mono">NODE.JS / EXPRESS / ZOD / OPENROUTER</span>
+              <span class="text-[11px] font-mono text-gray-600">2026</span>
+            </div>
+            <h3 class="text-xl font-bold text-gray-100 group-hover:text-indigo-400 transition-colors mb-2">AI API</h3>
+            <p class="text-gray-400 text-sm leading-relaxed">A backend integration for connecting applications with AI models through a clean API workflow.</p>
+          </div>
+          <div class="px-6 pb-6 pt-4 border-t border-slate-900/40 mt-auto flex items-center justify-between w-full">
+            <div class="flex items-center">
+              <img src="images/icons8-nodejs-48.png" alt="Node.js" class="h-5 w-auto object-contain mr-4" />
+              <img src="images/express.png" alt="Express" class="h-5 w-auto object-contain mr-4" />
+              <img src="images/zod.png" alt="Zod" class="h-5 w-auto object-contain mr-4" />
+              <img src="images/openrouter.png" alt="OpenRouter" class="h-4 w-auto object-contain" />
+            </div>
+            <a href="https://github.com/Saban2412/CONNECT-TO-AN-AI-API" target="_blank" rel="noreferrer" onclick="event.stopPropagation()" class="p-2 text-gray-400 hover:text-white bg-slate-950/40 hover:bg-slate-950 rounded-md border border-slate-900 hover:border-slate-800 transition-all relative z-10" title="GitHub Code">↗</a>
+          </div>
+        </div>
+        <div
+          data-project="project-5"
+          role="group"
+          tabindex="0"
+          class="project-card text-left w-full group bg-slate-900/20 border border-slate-900 rounded-xl overflow-hidden hover:border-slate-800 hover:bg-slate-900/30 transition-all flex flex-col justify-between cursor-pointer focus:outline-none focus:ring-2 focus:ring-indigo-500/40"
+          data-tags="node express openrouter inngest"
+        >
+          <div class="p-6 w-full">
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs text-gray-500 font-mono">NODE.JS / EXPRESS / OPENROUTER / INNGEST</span>
+              <span class="text-[11px] font-mono text-gray-600">2026</span>
+            </div>
+            <h3 class="text-xl font-bold text-gray-100 group-hover:text-indigo-400 transition-colors mb-2">AI Decision Flow with React Flow + Inngest</h3>
+            <p class="text-gray-400 text-sm leading-relaxed">A workflow-oriented AI project that combines visual decision flows with asynchronous backend execution.</p>
+          </div>
+          <div class="px-6 pb-6 pt-4 border-t border-slate-900/40 mt-auto flex items-center justify-between w-full">
+            <div class="flex items-center">
+              <img src="images/icons8-nodejs-48.png" alt="Node.js" class="h-5 w-auto object-contain mr-4" />
+              <img src="images/express.png" alt="Express" class="h-5 w-auto object-contain mr-4" />
+              <img src="images/openrouter.png" alt="OpenRouter" class="h-4 w-auto object-contain mr-4" />
+              <img src="images/inngest.png" alt="Inngest" class="h-6 w-auto object-contain" />
+            </div>
+            <a href="https://github.com/Saban2412/AI-Decision-Flow" target="_blank" rel="noreferrer" onclick="event.stopPropagation()" class="p-2 text-gray-400 hover:text-white bg-slate-950/40 hover:bg-slate-950 rounded-md border border-slate-900 hover:border-slate-800 transition-all relative z-10" title="GitHub Code">↗</a>
+          </div>
+        </div>
+        <div
+          data-project="project-6"
+          role="group"
+          tabindex="0"
+          class="project-card text-left w-full group bg-slate-900/20 border border-slate-900 rounded-xl overflow-hidden hover:border-slate-800 hover:bg-slate-900/30 transition-all flex flex-col justify-between cursor-pointer focus:outline-none focus:ring-2 focus:ring-indigo-500/40"
+          data-tags="node express sqlite"
+        >
+          <div class="p-6 w-full">
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-xs text-gray-500 font-mono">NODE.JS / EXPRESS / SQLITE</span>
+              <span class="text-[11px] font-mono text-gray-600">2026</span>
+            </div>
+            <h3 class="text-xl font-bold text-gray-100 group-hover:text-indigo-400 transition-colors mb-2">CRUD API (SQLite)</h3>
+            <p class="text-gray-400 text-sm leading-relaxed">A lightweight CRUD API using SQLite for straightforward local data persistence.</p>
+          </div>
+          <div class="px-6 pb-6 pt-4 border-t border-slate-900/40 mt-auto flex items-center justify-between w-full">
+            <div class="flex items-center">
+              <img src="images/icons8-nodejs-48.png" alt="Node.js" class="h-5 w-auto object-contain mr-4" />
+              <img src="images/express.png" alt="Express" class="h-5 w-auto object-contain mr-4" />
+              <img src="images/SQLite.png" alt="SQLite" class="h-5 w-auto object-contain" />
+            </div>
+            <a href="https://github.com/Saban2412/SQLITE-CRUD-API" target="_blank" rel="noreferrer" onclick="event.stopPropagation()" class="p-2 text-gray-400 hover:text-white bg-slate-950/40 hover:bg-slate-950 rounded-md border border-slate-900 hover:border-slate-800 transition-all relative z-10" title="GitHub Code">↗</a>
           </div>
         </div>
 
