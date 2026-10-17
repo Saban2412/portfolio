@@ -7,6 +7,8 @@
   let currentProjectImages = [];
   let currentImageIndex = 0;
   let allCertsExpanded = false;
+  const readmeCache = new Map();
+  let readmeRequestId = 0;
 
   function $(id) {
     return document.getElementById(id);
@@ -48,6 +50,110 @@
     return new Intl.DateTimeFormat(lang === "bs" ? "bs-BA" : "en-US", {
       dateStyle: "medium",
     }).format(new Date(value));
+  }
+
+  function getGithubRepositoryPath(repoUrl) {
+    try {
+      const url = new URL(repoUrl);
+      if (url.hostname !== "github.com") return null;
+      const parts = url.pathname.split("/").filter(Boolean);
+      if (parts.length < 2) return null;
+      return `${parts[0]}/${parts[1].replace(/\.git$/, "")}`;
+    } catch {
+      return null;
+    }
+  }
+
+  function decodeBase64Utf8(value) {
+    const binary = atob(value.replace(/\s/g, ""));
+    const bytes = Uint8Array.from(binary, (character) =>
+      character.charCodeAt(0),
+    );
+    return new TextDecoder().decode(bytes);
+  }
+
+  function setReadmeState(state, message) {
+    const status = $("modal-readme-state");
+    const readme = $("modal-readme");
+    if (!status || !readme) return;
+
+    status.textContent = message;
+    status.classList.toggle("hidden", state === "content");
+    readme.classList.toggle("hidden", state !== "content");
+  }
+
+  function renderReadme(markdown) {
+    const readme = $("modal-readme");
+    if (!readme || !window.marked || !window.DOMPurify) {
+      throw new Error("markdown-renderer-unavailable");
+    }
+
+    const rendered = window.marked.parse(markdown, {
+      breaks: true,
+      gfm: true,
+    });
+    readme.innerHTML = window.DOMPurify.sanitize(rendered, {
+      USE_PROFILES: { html: true },
+    });
+  }
+
+  async function loadProjectReadme(repoUrl, requestId) {
+    const repositoryPath = getGithubRepositoryPath(repoUrl);
+    if (!repositoryPath) {
+      setReadmeState(
+        "error",
+        lang === "bs"
+          ? "README nije dostupan za ovaj repozitorij."
+          : "README is not available for this repository.",
+      );
+      return;
+    }
+
+    if (readmeCache.has(repositoryPath)) {
+      if (requestId !== readmeRequestId) return;
+      renderReadme(readmeCache.get(repositoryPath));
+      setReadmeState("content", "");
+      return;
+    }
+
+    try {
+      const response = await fetch(
+        `https://api.github.com/repos/${repositoryPath}/readme`,
+        {
+          cache: "no-store",
+          headers: {
+            Accept: "application/vnd.github+json",
+          },
+        },
+      );
+      if (!response.ok) {
+        throw new Error(`github-readme-request-failed-${response.status}`);
+      }
+
+      const payload = await response.json();
+      if (
+        payload.encoding !== "base64" ||
+        typeof payload.content !== "string" ||
+        !payload.content.trim()
+      ) {
+        throw new Error("github-readme-content-invalid");
+      }
+
+      const readme = decodeBase64Utf8(payload.content);
+      readmeCache.set(repositoryPath, readme);
+      if (requestId !== readmeRequestId) return;
+      renderReadme(readme);
+      setReadmeState("content", "");
+    } catch (error) {
+      if (requestId !== readmeRequestId) return;
+      console.error(`Unable to load README for ${repositoryPath}`, error);
+      setReadmeState(
+        "error",
+        lang === "bs"
+          ? "README se trenutno ne može učitati."
+          : "README could not be loaded right now.",
+      );
+    }
   }
 
   async function loadGithubActivity() {
@@ -293,10 +399,14 @@
     const item = projectData[projectId];
     if (!item) return;
 
+    const requestId = ++readmeRequestId;
     $("modal-title").innerText = item.title;
     $("modal-tech").innerText = item.tech;
-    $("modal-desc-text").innerText = item.desc;
     $("modal-dev-text").innerText = item.dev;
+    setReadmeState(
+      "loading",
+      lang === "bs" ? "Učitavanje README-a..." : "Loading README...",
+    );
 
     const githubLink = $("modal-github-link");
     if (githubLink) {
@@ -321,6 +431,7 @@
     updateSliderImage();
     window.switchModalTab("desc");
     setOpen($("project-modal"), true);
+    loadProjectReadme(item.repo, requestId);
   };
 
   window.closeModal = function () {

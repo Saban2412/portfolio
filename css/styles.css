@@ -106,6 +106,131 @@ body.modal-open {
   overflow: hidden;
 }
 
+.modal-readme {
+  max-height: 220px;
+  overflow: auto;
+  padding: 0.75rem;
+  border: 1px solid rgba(51, 65, 85, 0.7);
+  border-radius: 0.5rem;
+  background: rgba(2, 6, 23, 0.45);
+  color: #94a3b8;
+  font:
+    0.7rem/1.65 "Fira Code",
+    monospace;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+.modal-readme h1,
+.modal-readme h2,
+.modal-readme h3,
+.modal-readme h4 {
+  margin: 0.9rem 0 0.45rem;
+  color: #e2e8f0;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.modal-readme h1 {
+  font-size: 1.15rem;
+}
+
+.modal-readme h2 {
+  font-size: 1rem;
+}
+
+.modal-readme h3,
+.modal-readme h4 {
+  font-size: 0.85rem;
+}
+
+.modal-readme p,
+.modal-readme ul,
+.modal-readme ol,
+.modal-readme blockquote,
+.modal-readme pre {
+  margin: 0.55rem 0;
+}
+
+.modal-readme ul,
+.modal-readme ol {
+  padding-left: 1.25rem;
+}
+
+.modal-readme ul {
+  list-style: disc;
+}
+
+.modal-readme ol {
+  list-style: decimal;
+}
+
+.modal-readme a {
+  color: #a5b4fc;
+  text-decoration: underline;
+}
+
+.modal-readme strong {
+  color: #e2e8f0;
+  font-weight: 700;
+}
+
+.modal-readme code {
+  padding: 0.1rem 0.25rem;
+  border-radius: 0.25rem;
+  background: rgba(15, 23, 42, 0.8);
+  color: #c4b5fd;
+  font-family: "Fira Code", monospace;
+  font-size: 0.9em;
+}
+
+.modal-readme pre {
+  overflow-x: auto;
+  padding: 0.65rem;
+  border: 1px solid rgba(51, 65, 85, 0.7);
+  border-radius: 0.35rem;
+  background: rgba(15, 23, 42, 0.8);
+}
+
+.modal-readme pre code {
+  padding: 0;
+  background: transparent;
+  color: #cbd5e1;
+}
+
+.modal-readme img {
+  max-width: 100%;
+  height: auto;
+  margin: 0.65rem auto;
+  border-radius: 0.35rem;
+}
+
+.modal-readme blockquote {
+  padding-left: 0.75rem;
+  border-left: 2px solid #6366f1;
+  color: #64748b;
+}
+
+html[data-theme="light"] .modal-readme {
+  border-color: #cbd5e1;
+  background: rgba(241, 245, 249, 0.86);
+  color: #475569;
+}
+
+html[data-theme="light"] .modal-readme h1,
+html[data-theme="light"] .modal-readme h2,
+html[data-theme="light"] .modal-readme h3,
+html[data-theme="light"] .modal-readme h4,
+html[data-theme="light"] .modal-readme strong {
+  color: #0f172a;
+}
+
+html[data-theme="light"] .modal-readme code,
+html[data-theme="light"] .modal-readme pre {
+  background: #e2e8f0;
+  color: #334155;
+}
+
 .github-activity-image {
   max-height: 320px;
   object-fit: contain;
