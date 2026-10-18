@@ -43,6 +43,20 @@
 
   updateThemeToggle();
 
+  const buildNotice = $("portfolio-build-notice");
+  const dismissBuildNotice = buildNotice?.querySelector(
+    "[data-dismiss-build-notice]",
+  );
+  if (buildNotice && dismissBuildNotice) {
+    if (localStorage.getItem("portfolio-build-notice-dismissed") === "true") {
+      buildNotice.classList.add("hidden");
+    }
+    dismissBuildNotice.addEventListener("click", () => {
+      localStorage.setItem("portfolio-build-notice-dismissed", "true");
+      buildNotice.classList.add("hidden");
+    });
+  }
+
   function formatGithubDate(value) {
     if (!value) return "";
     return new Intl.DateTimeFormat(lang === "bs" ? "bs-BA" : "en-US", {
