@@ -107,11 +107,27 @@
           aria-label="Switch to light mode"
           title="Switch to light mode"
         >
-          <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+          <svg
+            class="theme-icon theme-icon-sun"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            aria-hidden="true"
+          >
             <circle cx="12" cy="12" r="4" />
-            <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
+            <path
+              d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"
+            />
           </svg>
-          <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+          <svg
+            class="theme-icon theme-icon-moon"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            aria-hidden="true"
+          >
             <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z" />
           </svg>
         </button>
@@ -233,7 +249,7 @@
           <div>
             <p
               class="stat-number text-3xl md:text-4xl font-bold text-white"
-              data-count="3"
+              data-count="6"
             >
               0
             </p>
@@ -246,7 +262,8 @@
           <div>
             <p
               class="stat-number text-3xl md:text-4xl font-bold text-white"
-              data-count="7"
+              data-count="10"
+              data-suffix="+"
             >
               0
             </p>
@@ -330,10 +347,30 @@
         >
           Swagger
         </button>
-        <button data-filter="express" class="filter-chip px-4 py-2 rounded-full border border-slate-800 text-xs font-mono text-gray-400 hover:border-slate-600 hover:text-white">Express</button>
-        <button data-filter="openrouter" class="filter-chip px-4 py-2 rounded-full border border-slate-800 text-xs font-mono text-gray-400 hover:border-slate-600 hover:text-white">OpenRouter</button>
-        <button data-filter="inngest" class="filter-chip px-4 py-2 rounded-full border border-slate-800 text-xs font-mono text-gray-400 hover:border-slate-600 hover:text-white">Inngest</button>
-        <button data-filter="sqlite" class="filter-chip px-4 py-2 rounded-full border border-slate-800 text-xs font-mono text-gray-400 hover:border-slate-600 hover:text-white">SQLite</button>
+        <button
+          data-filter="express"
+          class="filter-chip px-4 py-2 rounded-full border border-slate-800 text-xs font-mono text-gray-400 hover:border-slate-600 hover:text-white"
+        >
+          Express
+        </button>
+        <button
+          data-filter="openrouter"
+          class="filter-chip px-4 py-2 rounded-full border border-slate-800 text-xs font-mono text-gray-400 hover:border-slate-600 hover:text-white"
+        >
+          OpenRouter
+        </button>
+        <button
+          data-filter="inngest"
+          class="filter-chip px-4 py-2 rounded-full border border-slate-800 text-xs font-mono text-gray-400 hover:border-slate-600 hover:text-white"
+        >
+          Inngest
+        </button>
+        <button
+          data-filter="sqlite"
+          class="filter-chip px-4 py-2 rounded-full border border-slate-800 text-xs font-mono text-gray-400 hover:border-slate-600 hover:text-white"
+        >
+          SQLite
+        </button>
       </div>
     </section>
 
@@ -585,20 +622,55 @@
         >
           <div class="p-6 w-full">
             <div class="flex items-center justify-between mb-3">
-              <span class="text-xs text-gray-500 font-mono">NODE.JS / EXPRESS / ZOD / OPENROUTER</span>
+              <span class="text-xs text-gray-500 font-mono"
+                >NODE.JS / EXPRESS / ZOD / OPENROUTER</span
+              >
               <span class="text-[11px] font-mono text-gray-600">2026</span>
             </div>
-            <h3 class="text-xl font-bold text-gray-100 group-hover:text-indigo-400 transition-colors mb-2">AI API</h3>
-            <p class="text-gray-400 text-sm leading-relaxed">A backend integration for connecting applications with AI models through a clean API workflow.</p>
+            <h3
+              class="text-xl font-bold text-gray-100 group-hover:text-indigo-400 transition-colors mb-2"
+            >
+              AI API
+            </h3>
+            <p class="text-gray-400 text-sm leading-relaxed">
+              A backend integration for connecting applications with AI models
+              through a clean API workflow.
+            </p>
           </div>
-          <div class="px-6 pb-6 pt-4 border-t border-slate-900/40 mt-auto flex items-center justify-between w-full">
+          <div
+            class="px-6 pb-6 pt-4 border-t border-slate-900/40 mt-auto flex items-center justify-between w-full"
+          >
             <div class="flex items-center">
-              <img src="images/icons8-nodejs-48.png" alt="Node.js" class="h-5 w-auto object-contain mr-4" />
-              <img src="images/express.png" alt="Express" class="h-5 w-auto object-contain mr-4" />
-              <img src="images/zod.png" alt="Zod" class="h-5 w-auto object-contain mr-4" />
-              <img src="images/openrouter.png" alt="OpenRouter" class="h-4 w-auto object-contain" />
+              <img
+                src="images/icons8-nodejs-48.png"
+                alt="Node.js"
+                class="h-5 w-auto object-contain mr-4"
+              />
+              <img
+                src="images/express.png"
+                alt="Express"
+                class="h-5 w-auto object-contain mr-4"
+              />
+              <img
+                src="images/zod.png"
+                alt="Zod"
+                class="h-5 w-auto object-contain mr-4"
+              />
+              <img
+                src="images/openrouter.png"
+                alt="OpenRouter"
+                class="h-4 w-auto object-contain"
+              />
             </div>
-            <a href="https://github.com/Saban2412/CONNECT-TO-AN-AI-API" target="_blank" rel="noreferrer" onclick="event.stopPropagation()" class="p-2 text-gray-400 hover:text-white bg-slate-950/40 hover:bg-slate-950 rounded-md border border-slate-900 hover:border-slate-800 transition-all relative z-10" title="GitHub Code">↗</a>
+            <a
+              href="https://github.com/Saban2412/CONNECT-TO-AN-AI-API"
+              target="_blank"
+              rel="noreferrer"
+              onclick="event.stopPropagation()"
+              class="p-2 text-gray-400 hover:text-white bg-slate-950/40 hover:bg-slate-950 rounded-md border border-slate-900 hover:border-slate-800 transition-all relative z-10"
+              title="GitHub Code"
+              >↗</a
+            >
           </div>
         </div>
         <div
@@ -610,20 +682,55 @@
         >
           <div class="p-6 w-full">
             <div class="flex items-center justify-between mb-3">
-              <span class="text-xs text-gray-500 font-mono">NODE.JS / EXPRESS / OPENROUTER / INNGEST</span>
+              <span class="text-xs text-gray-500 font-mono"
+                >NODE.JS / EXPRESS / OPENROUTER / INNGEST</span
+              >
               <span class="text-[11px] font-mono text-gray-600">2026</span>
             </div>
-            <h3 class="text-xl font-bold text-gray-100 group-hover:text-indigo-400 transition-colors mb-2">AI Decision Flow with React Flow + Inngest</h3>
-            <p class="text-gray-400 text-sm leading-relaxed">A workflow-oriented AI project that combines visual decision flows with asynchronous backend execution.</p>
+            <h3
+              class="text-xl font-bold text-gray-100 group-hover:text-indigo-400 transition-colors mb-2"
+            >
+              AI Decision Flow with React Flow + Inngest
+            </h3>
+            <p class="text-gray-400 text-sm leading-relaxed">
+              A workflow-oriented AI project that combines visual decision flows
+              with asynchronous backend execution.
+            </p>
           </div>
-          <div class="px-6 pb-6 pt-4 border-t border-slate-900/40 mt-auto flex items-center justify-between w-full">
+          <div
+            class="px-6 pb-6 pt-4 border-t border-slate-900/40 mt-auto flex items-center justify-between w-full"
+          >
             <div class="flex items-center">
-              <img src="images/icons8-nodejs-48.png" alt="Node.js" class="h-5 w-auto object-contain mr-4" />
-              <img src="images/express.png" alt="Express" class="h-5 w-auto object-contain mr-4" />
-              <img src="images/openrouter.png" alt="OpenRouter" class="h-4 w-auto object-contain mr-4" />
-              <img src="images/inngest.png" alt="Inngest" class="h-6 w-auto object-contain" />
+              <img
+                src="images/icons8-nodejs-48.png"
+                alt="Node.js"
+                class="h-5 w-auto object-contain mr-4"
+              />
+              <img
+                src="images/express.png"
+                alt="Express"
+                class="h-5 w-auto object-contain mr-4"
+              />
+              <img
+                src="images/openrouter.png"
+                alt="OpenRouter"
+                class="h-4 w-auto object-contain mr-4"
+              />
+              <img
+                src="images/inngest.png"
+                alt="Inngest"
+                class="h-6 w-auto object-contain"
+              />
             </div>
-            <a href="https://github.com/Saban2412/AI-Decision-Flow" target="_blank" rel="noreferrer" onclick="event.stopPropagation()" class="p-2 text-gray-400 hover:text-white bg-slate-950/40 hover:bg-slate-950 rounded-md border border-slate-900 hover:border-slate-800 transition-all relative z-10" title="GitHub Code">↗</a>
+            <a
+              href="https://github.com/Saban2412/AI-Decision-Flow"
+              target="_blank"
+              rel="noreferrer"
+              onclick="event.stopPropagation()"
+              class="p-2 text-gray-400 hover:text-white bg-slate-950/40 hover:bg-slate-950 rounded-md border border-slate-900 hover:border-slate-800 transition-all relative z-10"
+              title="GitHub Code"
+              >↗</a
+            >
           </div>
         </div>
         <div
@@ -635,19 +742,50 @@
         >
           <div class="p-6 w-full">
             <div class="flex items-center justify-between mb-3">
-              <span class="text-xs text-gray-500 font-mono">NODE.JS / EXPRESS / SQLITE</span>
+              <span class="text-xs text-gray-500 font-mono"
+                >NODE.JS / EXPRESS / SQLITE</span
+              >
               <span class="text-[11px] font-mono text-gray-600">2026</span>
             </div>
-            <h3 class="text-xl font-bold text-gray-100 group-hover:text-indigo-400 transition-colors mb-2">CRUD API (SQLite)</h3>
-            <p class="text-gray-400 text-sm leading-relaxed">A lightweight CRUD API using SQLite for straightforward local data persistence.</p>
+            <h3
+              class="text-xl font-bold text-gray-100 group-hover:text-indigo-400 transition-colors mb-2"
+            >
+              CRUD API (SQLite)
+            </h3>
+            <p class="text-gray-400 text-sm leading-relaxed">
+              A lightweight CRUD API using SQLite for straightforward local data
+              persistence.
+            </p>
           </div>
-          <div class="px-6 pb-6 pt-4 border-t border-slate-900/40 mt-auto flex items-center justify-between w-full">
+          <div
+            class="px-6 pb-6 pt-4 border-t border-slate-900/40 mt-auto flex items-center justify-between w-full"
+          >
             <div class="flex items-center">
-              <img src="images/icons8-nodejs-48.png" alt="Node.js" class="h-5 w-auto object-contain mr-4" />
-              <img src="images/express.png" alt="Express" class="h-5 w-auto object-contain mr-4" />
-              <img src="images/SQLite.png" alt="SQLite" class="h-5 w-auto object-contain" />
+              <img
+                src="images/icons8-nodejs-48.png"
+                alt="Node.js"
+                class="h-5 w-auto object-contain mr-4"
+              />
+              <img
+                src="images/express.png"
+                alt="Express"
+                class="h-5 w-auto object-contain mr-4"
+              />
+              <img
+                src="images/SQLite.png"
+                alt="SQLite"
+                class="h-5 w-auto object-contain"
+              />
             </div>
-            <a href="https://github.com/Saban2412/SQLITE-CRUD-API" target="_blank" rel="noreferrer" onclick="event.stopPropagation()" class="p-2 text-gray-400 hover:text-white bg-slate-950/40 hover:bg-slate-950 rounded-md border border-slate-900 hover:border-slate-800 transition-all relative z-10" title="GitHub Code">↗</a>
+            <a
+              href="https://github.com/Saban2412/SQLITE-CRUD-API"
+              target="_blank"
+              rel="noreferrer"
+              onclick="event.stopPropagation()"
+              class="p-2 text-gray-400 hover:text-white bg-slate-950/40 hover:bg-slate-950 rounded-md border border-slate-900 hover:border-slate-800 transition-all relative z-10"
+              title="GitHub Code"
+              >↗</a
+            >
           </div>
         </div>
 
@@ -704,7 +842,7 @@
     >
       <!-- Prozor Modala -->
       <div
-        class="modal-panel bg-cardBg border border-slate-900 w-full max-w-5xl h-[85vh] max-h-[650px] rounded-2xl shadow-2xl flex flex-col md:flex-row overflow-hidden relative"
+        class="modal-panel bg-cardBg border border-slate-900 w-full max-w-5xl h-[85vh] max-h-[760px] rounded-2xl shadow-2xl flex flex-col overflow-hidden relative"
       >
         <!-- Dugme za zatvaranje -->
         <button
@@ -716,9 +854,9 @@
 
         <!-- LIJEVA STRANA -->
         <div
-          class="w-full md:w-1/2 p-8 flex flex-col justify-between border-b md:border-b-0 md:border-r border-slate-900/60"
+          class="w-full p-8 flex flex-col min-h-0"
         >
-          <div>
+          <div class="flex flex-col min-h-0 flex-1">
             <span
               id="modal-tech"
               class="text-[10px] font-mono text-accentPurp tracking-wider uppercase"
@@ -748,13 +886,16 @@
             </div>
 
             <div
-              class="overflow-y-auto pr-2 max-h-[320px] text-xs text-gray-400 leading-relaxed space-y-4 font-sans scrollbar-thin"
+              class="flex-1 min-h-0 overflow-y-auto pr-2 text-xs text-gray-400 leading-relaxed space-y-4 font-sans scrollbar-thin"
             >
               <div id="modal-content-desc" class="block">
                 <p id="modal-readme-state" class="text-gray-500">
                   Loading README...
                 </p>
-                <article id="modal-readme" class="modal-readme hidden"></article>
+                <article
+                  id="modal-readme"
+                  class="modal-readme hidden"
+                ></article>
               </div>
 
               <div id="modal-content-dev" class="hidden">
@@ -762,53 +903,11 @@
               </div>
             </div>
           </div>
-        </div>
-
-        <!-- DESNA STRANA -->
-        <div
-          class="w-full md:w-1/2 p-8 flex flex-col justify-between bg-slate-950/20"
-        >
-          <div
-            class="relative w-full aspect-[16/10] bg-slate-950/60 border border-slate-900 rounded-xl overflow-hidden group flex items-center justify-center"
-          >
-            <img
-              id="modal-slider-img"
-              src=""
-              alt="Project screenshot"
-              class="w-full h-full object-cover transition-all duration-300"
-            />
-
-            <button
-              onclick="prevSlide()"
-              data-slide="prev"
-              class="slider-nav absolute left-3 p-1.5 rounded-md bg-slate-900/80 border border-slate-800 text-gray-400 hover:text-white text-xs font-mono transition-all"
-            >
-              ←
-            </button>
-            <button
-              onclick="nextSlide()"
-              data-slide="next"
-              class="slider-nav absolute right-3 p-1.5 rounded-md bg-slate-900/80 border border-slate-800 text-gray-400 hover:text-white text-xs font-mono transition-all"
-            >
-              →
-            </button>
-          </div>
-
-          <!-- DEMO dugme -->
-          <a
-            id="modal-demo-link"
-            href="#"
-            class="w-full text-center py-3 rounded-lg font-mono text-xs font-semibold text-gray-400 bg-transparent border border-gray-700 hover:border-gray-500 hover:text-white transition-all duration-300 mt-6 md:mt-0"
-          >
-            DEMO <span class="text-[10px]">↗</span>
-          </a>
-
-          <!-- GitHub dugme u indeks stilu -->
           <a
             id="modal-github-link"
             href="#"
             target="_blank"
-            class="btn-shine w-full text-center py-3 rounded-lg font-mono text-xs font-semibold text-white bg-accentPurp hover:bg-indigo-600 border border-accentPurp shadow-[0_0_15px_rgba(99,102,241,0.2)] hover:shadow-[0_0_25px_rgba(99,102,241,0.4)] transition-all duration-300 mt-3"
+            class="btn-shine w-full text-center py-3 rounded-lg font-mono text-xs font-semibold text-white bg-accentPurp hover:bg-indigo-600 border border-accentPurp shadow-[0_0_15px_rgba(99,102,241,0.2)] hover:shadow-[0_0_25px_rgba(99,102,241,0.4)] transition-all duration-300 mt-6 shrink-0"
           >
             VIEW REPOSITORY <span class="text-[10px]">↗</span>
           </a>

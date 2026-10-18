@@ -1482,7 +1482,7 @@
     >
       <!-- Prozor Modala -->
       <div
-        class="modal-panel bg-[#0b1120]/95 border border-slate-800/90 w-full max-w-5xl h-[85vh] max-h-[650px] rounded-2xl shadow-2xl flex flex-col md:flex-row overflow-hidden relative"
+        class="modal-panel bg-[#0b1120]/95 border border-slate-800/90 w-full max-w-5xl h-[85vh] max-h-[760px] rounded-2xl shadow-2xl flex flex-col overflow-hidden relative"
       >
         <!-- Dugme za zatvaranje (Gore desno) -->
         <button
@@ -1494,10 +1494,10 @@
 
         <!-- LIJEVA STRANA: DETALJI I INTERNI TABOVI -->
         <div
-          class="w-full md:w-1/2 p-8 flex flex-col justify-between border-b md:border-b-0 md:border-r border-slate-800/60"
+          class="w-full p-8 flex flex-col min-h-0"
         >
           <!-- Gornji fiksni dio -->
-          <div>
+          <div class="flex flex-col min-h-0 flex-1">
             <span
               id="modal-tech"
               class="text-[10px] font-mono text-blue-400 tracking-wider uppercase"
@@ -1529,7 +1529,7 @@
 
             <!-- Skrolujući tekstualni sadržaj -->
             <div
-              class="overflow-y-auto pr-2 max-h-[320px] text-xs text-gray-400 leading-relaxed space-y-4 font-sans scrollbar-thin"
+              class="flex-1 min-h-0 overflow-y-auto pr-2 text-xs text-gray-400 leading-relaxed space-y-4 font-sans scrollbar-thin"
             >
               <!-- Sadržaj za Description -->
               <div id="modal-content-desc" class="block">
@@ -1548,55 +1548,11 @@
               </div>
             </div>
           </div>
-        </div>
-
-        <!-- DESNA STRANA: SLIDER I GITHUB DUGME -->
-        <div
-          class="w-full md:w-1/2 p-8 flex flex-col justify-between bg-slate-950/20"
-        >
-          <!-- Image Slider Kontejner -->
-          <div
-            class="relative w-full aspect-[16/10] bg-slate-950/60 border border-slate-900 rounded-xl overflow-hidden group flex items-center justify-center"
-          >
-            <img
-              id="modal-slider-img"
-              src=""
-              alt="Project screenshot"
-              class="w-full h-full object-cover transition-all duration-300"
-            />
-
-            <!-- Kontrole za Slider (Prethodna / Sljedeća) -->
-            <button
-              onclick="prevSlide()"
-              data-slide="prev"
-              class="slider-nav absolute left-3 p-1.5 rounded-md bg-slate-900/80 border border-slate-800 text-gray-400 hover:text-white text-xs font-mono transition-all"
-            >
-              ←
-            </button>
-            <button
-              onclick="nextSlide()"
-              data-slide="next"
-              class="slider-nav absolute right-3 p-1.5 rounded-md bg-slate-900/80 border border-slate-800 text-gray-400 hover:text-white text-xs font-mono transition-all"
-            >
-              →
-            </button>
-          </div>
-
-          <!-- DEMO dugme (placeholder — link dodaje Emir naknadno) -->
-          <a
-            id="modal-demo-link"
-            href="#"
-            class="w-full text-center py-3 rounded-lg font-mono text-xs font-semibold text-gray-400 bg-transparent border border-gray-700 hover:border-gray-500 hover:text-white transition-all duration-300 mt-6 md:mt-0"
-          >
-            DEMO <span class="text-[10px]">↗</span>
-          </a>
-
-          <!-- Istaknuto dugme za GitHub (Kao View My Work u Hero sekciji) -->
           <a
             id="modal-github-link"
             href="#"
             target="_blank"
-            class="btn-shine w-full text-center py-3 rounded-lg font-mono text-xs font-semibold text-white bg-blue-600 hover:bg-blue-500 border border-blue-500 shadow-[0_0_15px_rgba(37,99,235,0.2)] hover:shadow-[0_0_25px_rgba(37,99,235,0.4)] transition-all duration-300 mt-3"
+            class="btn-shine w-full text-center py-3 rounded-lg font-mono text-xs font-semibold text-white bg-blue-600 hover:bg-blue-500 border border-blue-500 shadow-[0_0_15px_rgba(37,99,235,0.2)] hover:shadow-[0_0_25px_rgba(37,99,235,0.4)] transition-all duration-300 mt-6 shrink-0"
           >
             VIEW REPOSITORY <span class="text-[10px]">↗</span>
           </a>

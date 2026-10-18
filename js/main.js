@@ -4,8 +4,6 @@
   const projectData = (data.projects && data.projects[lang]) || {};
   const certData = (data.certs && data.certs[lang]) || {};
 
-  let currentProjectImages = [];
-  let currentImageIndex = 0;
   let allCertsExpanded = false;
   const readmeCache = new Map();
   let readmeRequestId = 0;
@@ -297,24 +295,6 @@
     }
   }
 
-  function updateSliderImage() {
-    const img = $("modal-slider-img");
-    const prev = img && img.parentElement.querySelector('[data-slide="prev"]');
-    const next = img && img.parentElement.querySelector('[data-slide="next"]');
-    if (!img) return;
-    if (!currentProjectImages.length) {
-      img.removeAttribute("src");
-      img.alt = "";
-      if (prev) prev.classList.add("hidden");
-      if (next) next.classList.add("hidden");
-      return;
-    }
-    img.src = currentProjectImages[currentImageIndex];
-    const many = currentProjectImages.length > 1;
-    if (prev) prev.classList.toggle("hidden", !many);
-    if (next) next.classList.toggle("hidden", !many);
-  }
-
   window.switchTab = function (tabName) {
     const tabs = ["projects", "certificates", "stack"];
     tabs.forEach((item) => {
@@ -415,20 +395,6 @@
       githubLink.rel = "noreferrer";
     }
 
-    const demoLink = $("modal-demo-link");
-    if (demoLink) {
-      if (item.demo) {
-        demoLink.href = item.demo;
-        demoLink.classList.remove("hidden");
-      } else {
-        demoLink.removeAttribute("href");
-        demoLink.classList.add("hidden");
-      }
-    }
-
-    currentProjectImages = item.images || [];
-    currentImageIndex = 0;
-    updateSliderImage();
     window.switchModalTab("desc");
     setOpen($("project-modal"), true);
     loadProjectReadme(item.repo, requestId);
@@ -509,20 +475,6 @@
       activate(devTab);
       deactivate(descTab);
     }
-  };
-
-  window.nextSlide = function () {
-    if (!currentProjectImages.length) return;
-    currentImageIndex = (currentImageIndex + 1) % currentProjectImages.length;
-    updateSliderImage();
-  };
-
-  window.prevSlide = function () {
-    if (!currentProjectImages.length) return;
-    currentImageIndex =
-      (currentImageIndex - 1 + currentProjectImages.length) %
-      currentProjectImages.length;
-    updateSliderImage();
   };
 
   window.scrollToSection = function (event, id) {

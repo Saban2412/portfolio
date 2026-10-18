@@ -107,7 +107,7 @@ body.modal-open {
 }
 
 .modal-readme {
-  max-height: 220px;
+  max-height: none;
   overflow: auto;
   padding: 0.75rem;
   border: 1px solid rgba(51, 65, 85, 0.7);
